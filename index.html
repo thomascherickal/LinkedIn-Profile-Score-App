@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Profile Score | by The Digital Futurist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            cyan: '#00f2fe',
+                            blue: '#4facfe',
+                            dark: '#030712',
+                            card: 'rgba(15, 23, 42, 0.6)',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #030712; 
+            color: #f1f5f9; 
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .glass-panel { 
+            background: rgba(15, 23, 42, 0.4); 
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 242, 254, 0.15);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255,255,255,0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .glass-panel:hover {
+            border-color: rgba(0, 242, 254, 0.3);
+            transform: translateY(-2px);
+        }
+        .uniform-width {
+            max-width: 800px;
+            position: relative;
+            z-index: 10;
+        }
+        input, textarea {
+            background-color: rgba(3, 7, 18, 0.6) !important;
+            border: 1px solid rgba(79, 172, 254, 0.2) !important;
+            color: #e2e8f0 !important;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+        input:focus, textarea:focus {
+            border-color: #00f2fe !important;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2) !important;
+            outline: none;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .animate-delay-100 { animation-delay: 100ms; }
+        .animate-delay-200 { animation-delay: 200ms; }
+        .animate-delay-300 { animation-delay: 300ms; }
+    </style>
+</head>
+<body class="min-h-screen py-12 px-4 relative bg-brand-dark selection:bg-brand-cyan selection:text-brand-dark">
+
+    <!-- Animated Background Orbs -->
+    <div class="fixed inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-blue rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-brand-cyan rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animate-delay-200"></div>
+        <div class="absolute bottom-[-20%] left-[20%] w-[500px] h-[500px] bg-[#4f46e5] rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animate-delay-300"></div>
+    </div>
+
+    <div class="uniform-width mx-auto space-y-8 animate-fade-in-up">
+        
+        <!-- Brand Header -->
+        <header class="text-center space-y-4 relative z-10">
+            <div class="inline-block px-4 py-1.5 rounded-full border border-brand-cyan/30 bg-brand-cyan/10 text-brand-cyan text-xs font-bold uppercase tracking-widest backdrop-blur-sm">
+                Developed by The Digital Futurist
+            </div>
+            <h1 class="text-4xl font-extrabold tracking-tight md:text-5xl font-outfit">
+                LinkedIn <span class="gradient-text">Optimizer</span>
+            </h1>
+            <p class="text-slate-400 text-lg">A comprehensive diagnostic for high-performance professional identities.</p>
+        </header>
+
+        <!-- Main Input Form -->
+        <main class="glass-panel p-8 rounded-3xl space-y-8">
+            
+            <section class="space-y-6">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-300 mb-2">Headline & About</label>
+                    <textarea id="headlineAbout" placeholder="Paste your Headline and About section..." class="w-full h-32 rounded-xl p-4 text-slate-300"></textarea>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-300 mb-2">Skills List</label>
+                        <textarea id="skillsList" placeholder="Paste skills (comma separated)..." class="w-full h-24 rounded-xl p-4 text-slate-300 text-xs"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-300 mb-2">Endorsements Summary</label>
+                        <textarea id="endorsements" placeholder="Paste endorsement text or count..." class="w-full h-24 rounded-xl p-4 text-slate-300 text-xs"></textarea>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-300 mb-2">Portfolio Links & Descriptions</label>
+                    <textarea id="portfolio" placeholder="GitHub, Substack, OpenSource projects..." class="w-full h-24 rounded-xl p-4 text-slate-300 text-xs"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-300 mb-2">Recent Articles/Posts</label>
+                    <textarea id="articles" placeholder="Paste recent titles or content snippets..." class="w-full h-24 rounded-xl p-4 text-slate-300 text-xs"></textarea>
+                </div>
+
+                <button onclick="runDiagnostic()" class="w-full bg-gradient-to-r from-[#00f2fe] to-[#4facfe] hover:brightness-110 text-white font-outfit font-bold text-lg py-4 rounded-2xl shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all transform hover:-translate-y-1 active:scale-[0.98]">
+                    Analyze All Dimensions
+                </button>
+            </section>
+        </main>
+
+        <!-- Results Display -->
+        <div id="results" class="hidden space-y-8 animate-fade-in-up">
+            <div class="glass-panel p-8 rounded-3xl text-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-cyan/10 rounded-full blur-2xl"></div>
+                <div class="absolute bottom-0 left-0 w-32 h-32 bg-brand-blue/10 rounded-full blur-2xl"></div>
+                <h2 class="text-2xl font-bold mb-6 font-outfit tracking-wide">Aggregate Authority Score</h2>
+                <div class="relative h-64 w-full flex justify-center items-center">
+                    <canvas id="scoreChart" class="max-w-[250px] relative z-10"></canvas>
+                    <div id="scoreText" class="absolute text-5xl font-black text-white font-outfit drop-shadow-[0_0_10px_rgba(0,242,254,0.8)] z-10"></div>
+                </div>
+            </div>
+
+            <div id="dimensionBreakdown" class="grid grid-cols-1 gap-6">
+                <!-- Dimension Cards Loaded via JS -->
+            </div>
+
+            <div class="glass-panel p-8 rounded-3xl border-l-4 border-[#00f2fe] relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#00f2fe]/5 to-transparent pointer-events-none"></div>
+                <h3 class="text-xl font-bold font-outfit gradient-text mb-4 uppercase tracking-wider">Profile Optimization Level</h3>
+                <p id="finalVerdict" class="text-slate-300 leading-relaxed relative z-10 text-lg"></p>
+            </div>
+
+        </div>
+
+        <!-- Personal Footer -->
+        <footer class="text-center pt-12 border-t border-slate-800">
+            <p class="text-slate-500 text-sm mb-4">Developed by The Digital Futurist</p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://thomascherickal.com" class="text-blue-400 hover:text-blue-300 font-medium">thomascherickal.com</a>
+                <a href="https://topmate.io/thedigitalfuturist" class="text-slate-400 hover:text-white">Consulting</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="expert_system.js"></script>
+    <script>
+        let chartInstance = null;
+        const expertSystem = new LinkedInExpertSystem();
+
+        function runDiagnostic() {
+            const data = {
+                ha: document.getElementById('headlineAbout').value,
+                skills: document.getElementById('skillsList').value,
+                ends: document.getElementById('endorsements').value,
+                port: document.getElementById('portfolio').value,
+                arts: document.getElementById('articles').value
+            };
+
+            if(!data.ha) { alert("Please at least provide Headline/About content."); return; }
+
+            const dimensions = expertSystem.runDiagnostic(data);
+            const finalAvg = Math.round(dimensions.reduce((acc, curr) => acc + curr.data.score, 0) / 5);
+            
+            displayResults(finalAvg, dimensions);
+        }
+
+        function displayResults(avg, dims) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.classList.remove('hidden');
+            
+            const scoreText = document.getElementById('scoreText');
+            let current = 0;
+            const target = avg;
+            const duration = 1500;
+            const stepTime = Math.abs(Math.floor(duration / target));
+            
+            const timer = setInterval(() => {
+                current += 1;
+                scoreText.innerText = current + "%";
+                if (current >= target) {
+                    clearInterval(timer);
+                    scoreText.innerText = target + "%";
+                }
+            }, stepTime || 20);
+            
+            const container = document.getElementById('dimensionBreakdown');
+            container.innerHTML = '';
+            
+            let delay = 100;
+            dims.forEach((dim) => {
+                const card = document.createElement('div');
+                card.className = 'glass-panel p-6 rounded-2xl flex flex-col space-y-4 opacity-0 transform translate-y-4 transition-all duration-500 ease-out';
+                
+                let editsHtml = '';
+                if (dim.data.edits && dim.data.edits.length > 0) {
+                    const editsList = dim.data.edits.map(edit => `<li class="flex items-start"><span class="text-[#00f2fe] mr-2 mt-0.5">▹</span><span>${edit}</span></li>`).join('');
+                    editsHtml = `
+                        <div class="mt-4 pt-4 border-t border-slate-700/50">
+                            <h5 class="text-[#4facfe] font-semibold text-xs uppercase tracking-wider mb-2 flex items-center"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> Expert System Suggested Edits</h5>
+                            <ul class="text-slate-400 text-sm space-y-2">
+                                ${editsList}
+                            </ul>
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-center border-b border-[#00f2fe]/20 pb-3">
+                        <span class="font-bold text-white font-outfit text-xl">${dim.name}</span>
+                        <span class="gradient-text font-black text-2xl">${dim.data.score}%</span>
+                    </div>
+                    <div class="text-slate-300 text-sm leading-relaxed space-y-3">
+                        <h4 class="text-[#00f2fe] font-semibold uppercase tracking-wider text-xs">Diagnostic Analysis</h4>
+                        <p>${dim.data.analysis}</p>
+                    </div>
+                    ${editsHtml}
+                `;
+                container.appendChild(card);
+                
+                setTimeout(() => {
+                    card.classList.remove('opacity-0', 'translate-y-4');
+                }, delay);
+                delay += 150;
+            });
+
+            const verdict = document.getElementById('finalVerdict');
+            let level = "None";
+            let desc = "";
+
+            if (avg >= 91) {
+                level = "Extraordinary";
+                desc = "Your profile is in the top 1% of professionals. It signals deep technical competence and strategic vision. Recommendation: Shift focus from broad appeal to high-ticket, exclusive consulting and proprietary content.";
+            } else if (avg >= 76) {
+                level = "Very High";
+                desc = "You have an outstanding profile. It effectively communicates your authority. Continue to refine your portfolio and build deeper relationships with industry leaders.";
+            } else if (avg >= 61) {
+                level = "High";
+                desc = "You have a strong, well-structured profile. To reach the next level of elite positioning, focus heavily on generating public Proof of Work and farming high-quality endorsements.";
+            } else if (avg >= 41) {
+                level = "Medium";
+                desc = "Solid foundational profile with clear identity, but you are currently trapped in the 'average professional' tier. You must aggressively optimize your weak points above to command premium attention.";
+            } else if (avg >= 26) {
+                level = "Low";
+                desc = "Your profile is underperforming and underselling your true value. Execute the expert system recommendations to turn this passive resume into an active inbound lead generation engine.";
+            } else if (avg >= 11) {
+                level = "Very Low";
+                desc = "Your profile is currently a massive liability. Start immediately by rewriting your identity narrative and mapping out your skill architecture.";
+            } else {
+                level = "None";
+                desc = "Your profile is effectively blank or severely lacking in all critical areas. You must build your professional identity from scratch using the optimization plan above.";
+            }
+
+            verdict.innerHTML = `<strong class="text-[#00f2fe] uppercase tracking-wide text-sm block mb-2">Level: ${level}</strong> ${desc}`;
+
+            renderChart(avg);
+            
+            setTimeout(() => {
+                window.scrollTo({ top: document.getElementById('results').offsetTop - 50, behavior: 'smooth' });
+            }, 300);
+        }
+
+        function renderChart(score) {
+            const ctx = document.getElementById('scoreChart').getContext('2d');
+            if(chartInstance) chartInstance.destroy();
+            
+            // Create gradient
+            const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, '#00f2fe');
+            gradient.addColorStop(1, '#4facfe');
+
+            chartInstance = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [score, 100-score],
+                        backgroundColor: [gradient, 'rgba(15, 23, 42, 0.5)'],
+                        borderWidth: 0,
+                        circumference: 180,
+                        rotation: 270,
+                        borderRadius: 10,
+                    }]
+                },
+                options: { cutout: '85%', plugins: { legend: { display: false } }, animation: { duration: 1500, easing: 'easeOutQuart' } }
+            });
+        }
+    </script>
+</body>
+</html>
