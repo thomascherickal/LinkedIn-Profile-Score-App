@@ -3,191 +3,1120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LinkedIn Profile Score | by The Digital Futurist</title>
+    <title>LinkedIn Authority & Identity Suite | by The Digital Futurist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
                         outfit: ['Outfit', 'sans-serif'],
                     },
                     colors: {
                         brand: {
                             cyan: '#00f2fe',
                             blue: '#4facfe',
-                            dark: '#030712',
-                            card: 'rgba(15, 23, 42, 0.6)',
-                        }
-                    },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                            purple: '#8b5cf6',
+                            dark: '#090d16',
                         }
                     }
                 }
             }
         }
     </script>
-    <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #030712; 
-            color: #f1f5f9; 
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-        .glass-panel { 
-            background: rgba(15, 23, 42, 0.4); 
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(0, 242, 254, 0.15);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255,255,255,0.05);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .glass-panel:hover {
-            border-color: rgba(0, 242, 254, 0.3);
-            transform: translateY(-2px);
-        }
-        .uniform-width {
-            max-width: 800px;
-            position: relative;
-            z-index: 10;
-        }
-        input, textarea {
-            background-color: rgba(3, 7, 18, 0.6) !important;
-            border: 1px solid rgba(79, 172, 254, 0.2) !important;
-            color: #e2e8f0 !important;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(4px);
-        }
-        input:focus, textarea:focus {
-            border-color: #00f2fe !important;
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2) !important;
-            outline: none;
-        }
-        .gradient-text {
-            background: linear-gradient(to right, #00f2fe, #4facfe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .animate-delay-100 { animation-delay: 100ms; }
-        .animate-delay-200 { animation-delay: 200ms; }
-        .animate-delay-300 { animation-delay: 300ms; }
-    </style>
 </head>
-<body class="min-h-screen py-12 px-4 relative bg-brand-dark selection:bg-brand-cyan selection:text-brand-dark">
+<body class="min-h-screen relative bg-brand-dark selection:bg-brand-cyan selection:text-brand-dark text-xs sm:text-sm">
 
-    <!-- Animated Background Orbs -->
+    <!-- Animated Ambient Background Orbs -->
     <div class="fixed inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-blue rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob"></div>
-        <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-brand-cyan rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animate-delay-200"></div>
-        <div class="absolute bottom-[-20%] left-[20%] w-[500px] h-[500px] bg-[#4f46e5] rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animate-delay-300"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-brand-blue rounded-full mix-blend-multiply filter blur-[128px] opacity-15 animate-pulse-slow"></div>
+        <div class="absolute top-[30%] right-[-10%] w-[600px] h-[600px] bg-brand-cyan rounded-full mix-blend-multiply filter blur-[128px] opacity-15 animate-pulse-slow"></div>
+        <div class="absolute bottom-[-10%] left-[20%] w-[500px] h-[500px] bg-brand-purple rounded-full mix-blend-multiply filter blur-[128px] opacity-10 animate-pulse-slow"></div>
     </div>
 
-    <div class="uniform-width mx-auto space-y-8 animate-fade-in-up">
+    <!-- Main Container -->
+    <div class="max-w-[1400px] mx-auto p-4 md:p-8 relative z-10 flex flex-col min-h-screen space-y-6">
         
-        <!-- Brand Header -->
-        <header class="text-center space-y-4 relative z-10">
-            <div class="inline-block px-4 py-1.5 rounded-full border border-brand-cyan/30 bg-brand-cyan/10 text-brand-cyan text-xs font-bold uppercase tracking-widest backdrop-blur-sm">
-                Developed by The Digital Futurist
+        <!-- Premium Header Area -->
+        <header class="flex flex-col gap-6 pb-6 border-b border-[#00f2fe]/10">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="space-y-1 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-cyan/20 bg-brand-cyan/5 text-brand-cyan text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse"></span>
+                        Authority Engine v4.0 (Enterprise)
+                    </div>
+                    <h1 class="text-3xl font-black md:text-4xl font-outfit tracking-tight">
+                        LinkedIn <span class="gradient-text">Authority Suite</span>
+                    </h1>
+                    <p class="text-slate-400 text-xs sm:text-sm">Multi-career alignment diagnostics, automated copywriter, and skill matrix gap optimizer.</p>
+                </div>
+                
+                <!-- Quick Dashboard Summary Widget -->
+                <div class="flex items-center gap-4 bg-brand-dark-card border border-[#00f2fe]/10 px-5 py-3 rounded-2xl glass-panel shrink-0">
+                    <div class="text-right">
+                        <span class="text-slate-400 text-[10px] sm:text-xs uppercase font-bold tracking-wider block">Simulated Rating</span>
+                        <div id="quickSimScore" class="text-2xl font-black text-white font-outfit">0%</div>
+                    </div>
+                    <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-brand-cyan/10 border border-brand-cyan/20">
+                        <svg class="w-5 h-5 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                    </div>
+                </div>
             </div>
-            <h1 class="text-4xl font-extrabold tracking-tight md:text-5xl font-outfit">
-                LinkedIn <span class="gradient-text">Profile Score</span>
-            </h1>
-            <p class="text-slate-400 text-lg">A comprehensive diagnostic assessment for high-performance professional identities.</p>
+
+            <!-- GLOBAL HEADER CAREER TARGET SELECTOR (FULL INLINE CHECKLIST) -->
+            <div class="glass-panel p-6 rounded-2xl border border-brand-cyan/20 bg-brand-dark-card space-y-4 relative z-40">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block font-outfit">🎯 Target Career Ambitions (Select Multiple)</label>
+                        <p class="text-[11px] text-slate-500">The entire dashboard (scorecard, skill gaps, blueprints, roadmap) will calculate composite metrics tailored to these selections. Select multiple paths below to compile dynamic aligned blueprints.</p>
+                    </div>
+                    <!-- Selected glow pills wrapper -->
+                    <div id="selectedPillsWrapper" class="flex flex-wrap gap-2 max-w-full lg:max-w-[60%]">
+                        <!-- Dynamic pill elements loaded via JS -->
+                    </div>
+                </div>
+
+                <!-- Complete organized list of all 80 roles, fully displayed, no dropdown/popup needed! -->
+                <div id="careersListContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4 rounded-2xl bg-brand-dark/50 border border-brand-blue/10 max-h-[350px] overflow-y-auto pr-1 scrollbar-thin">
+                    <!-- Filled dynamically by JS in 4 distinct groups -->
+                </div>
+            </div>
         </header>
 
-        <!-- Main Input Form -->
-        <main class="glass-panel p-8 rounded-3xl space-y-8">
+        <!-- Main Dashboard Split Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            <section class="space-y-6">
-                <div>
-                    <label class="block text-sm font-semibold text-slate-300 mb-2">Headline & About</label>
-                    <textarea id="headlineAbout" placeholder="Paste your Headline and About section..." class="w-full h-32 rounded-xl p-4 text-slate-300"></textarea>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-300 mb-2">Skills List</label>
-                        <textarea id="skillsList" placeholder="Paste skills (comma separated)..." class="w-full h-24 rounded-xl p-4 text-slate-300 text-xs"></textarea>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-300 mb-2">Endorsements Summary</label>
-                        <textarea id="endorsements" placeholder="Paste endorsement text or count..." class="w-full h-24 rounded-xl p-4 text-slate-300 text-xs"></textarea>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-semibold text-slate-300 mb-2">Portfolio Links & Descriptions</label>
-                    <textarea id="portfolio" placeholder="GitHub, Substack, OpenSource projects..." class="w-full h-24 rounded-xl p-4 text-slate-300 text-xs"></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-semibold text-slate-300 mb-2">Recent Articles/Posts</label>
-                    <textarea id="articles" placeholder="Paste recent titles or content snippets..." class="w-full h-24 rounded-xl p-4 text-slate-300 text-xs"></textarea>
-                </div>
-
-                <button onclick="runDiagnostic()" class="w-full bg-gradient-to-r from-[#00f2fe] to-[#4facfe] hover:brightness-110 text-white font-outfit font-bold text-lg py-4 rounded-2xl shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all transform hover:-translate-y-1 active:scale-[0.98]">
-                    Analyze All Dimensions
+            <!-- Left Sticky Navigation Menu -->
+            <nav class="lg:col-span-3 lg:sticky lg:top-[120px] flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible gap-2 pb-2 lg:pb-0 scrollbar-none border-b lg:border-b-0 border-[#00f2fe]/10 z-30">
+                <button onclick="scrollToSection('importer-section')" id="nav-importer-section" class="tab-btn active flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-400 hover:text-white whitespace-nowrap w-full">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                    <span>⚡ Smart Raw Importer</span>
                 </button>
-            </section>
-        </main>
+                <button onclick="scrollToSection('diagnostic-section')" id="nav-diagnostic-section" class="tab-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-400 hover:text-white whitespace-nowrap w-full">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    <span>📊 Diagnostic Suite</span>
+                </button>
+                <button onclick="scrollToSection('optimizer-section')" id="nav-optimizer-section" class="tab-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-400 hover:text-white whitespace-nowrap w-full">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    <span>✍️ Headline & Bio Creator</span>
+                </button>
+                <button onclick="scrollToSection('creator-section')" id="nav-creator-section" class="tab-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-400 hover:text-white whitespace-nowrap w-full">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                    <span>🚀 Post Hook Optimizer</span>
+                </button>
+                <button onclick="scrollToSection('gaps-section')" id="nav-gaps-section" class="tab-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-400 hover:text-white whitespace-nowrap w-full">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <span>🎯 Target Career Matcher</span>
+                </button>
+                <button onclick="scrollToSection('roadmap-section')" id="nav-roadmap-section" class="tab-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-400 hover:text-white whitespace-nowrap w-full">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                    <span>✅ Active Checklist</span>
+                </button>
+            </nav>
 
-        <!-- Results Display -->
-        <div id="results" class="hidden space-y-8 animate-fade-in-up">
-            <div class="glass-panel p-8 rounded-3xl text-center relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-cyan/10 rounded-full blur-2xl"></div>
-                <div class="absolute bottom-0 left-0 w-32 h-32 bg-brand-blue/10 rounded-full blur-2xl"></div>
-                <h2 class="text-2xl font-bold mb-6 font-outfit tracking-wide">Aggregate Authority Score</h2>
-                <div class="relative h-64 w-full flex justify-center items-center">
-                    <canvas id="scoreChart" class="max-w-[250px] relative z-10"></canvas>
-                    <div id="scoreText" class="absolute text-5xl font-black text-white font-outfit drop-shadow-[0_0_10px_rgba(0,242,254,0.8)] z-10"></div>
-                </div>
-            </div>
+            <!-- Scrollable Workspace Pane -->
+            <main class="lg:col-span-9 space-y-12">
 
-            <div id="dimensionBreakdown" class="grid grid-cols-1 gap-6">
-                <!-- Dimension Cards Loaded via JS -->
-            </div>
+                <!-- SECTION 0: RAW IMPORTER & GLOBAL INPUT PANEL -->
+                <section id="importer-section" class="section-panel space-y-6">
+                    
+                    <!-- PDF Instructions Guide -->
+                    <div class="glass-panel p-5 rounded-2xl border border-brand-cyan/25 bg-brand-cyan/5 space-y-3 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-brand-cyan/5 to-transparent pointer-events-none"></div>
+                        <h3 class="text-sm font-bold text-brand-cyan uppercase tracking-wider flex items-center gap-2 relative z-10 font-outfit">
+                            <svg class="w-4 h-4 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            How to Export your LinkedIn Profile as a PDF
+                        </h3>
+                        <ol class="text-xs sm:text-sm text-slate-300 space-y-2 list-decimal list-inside relative z-10 font-sans leading-relaxed">
+                            <li>Open your web browser, go to LinkedIn, and navigate to your <strong class="text-white">Profile page</strong>.</li>
+                            <li>Find the header box containing your name and headline. Click the <strong class="text-brand-cyan">More</strong> button (positioned next to "Add profile section").</li>
+                            <li>Select <strong class="text-white">Save to PDF</strong> from the dropdown menu.</li>
+                            <li>LinkedIn will instantly compile your structured resume and save it as a PDF. Drop or upload it below!</li>
+                        </ol>
+                    </div>
 
-            <div class="glass-panel p-8 rounded-3xl border-l-4 border-[#00f2fe] relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#00f2fe]/5 to-transparent pointer-events-none"></div>
-                <h3 class="text-xl font-bold font-outfit gradient-text mb-4 uppercase tracking-wider">Profile Optimization Level</h3>
-                <p id="finalVerdict" class="text-slate-300 leading-relaxed relative z-10 text-lg"></p>
-            </div>
 
+
+                    <div class="glass-panel p-6 md:p-8 rounded-3xl space-y-6">
+                        <div class="space-y-2">
+                            <h2 class="text-2xl font-black font-outfit text-white">LinkedIn Profile PDF & Data Importer</h2>
+                            <p class="text-xs sm:text-sm text-slate-400">Reduce manual work! Upload your downloaded LinkedIn PDF or drop it in the box below. Mozilla's clientside PDF engine will parse it instantly in your browser.</p>
+                        </div>
+                        <div class="section-career-picker" data-section-id="importer-section"></div>
+
+                        <!-- Heuristic PDF/Text Input Dropzone -->
+                        <div id="dropZone" class="dropzone rounded-2xl p-6 text-center space-y-4 cursor-pointer relative overflow-hidden flex flex-col items-center justify-center min-h-[160px]">
+                            <div class="py-2 space-y-3 pointer-events-none">
+                                <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan mx-auto flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                                </div>
+                                <div class="space-y-1">
+                                    <p class="font-semibold text-slate-300 text-sm">Drag & Drop your LinkedIn PDF file here</p>
+                                    <p class="text-xs text-slate-500">Or drag and drop files, or paste raw text to parse instantly</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Absolute text-area overlay for copy-paste. Keeps drag-n-drop events active -->
+                            <textarea id="rawProfileDump" class="absolute inset-0 opacity-0 w-full h-full cursor-pointer z-10" placeholder=""></textarea>
+                            
+                            <!-- Styled Browse button overlaying the textarea with higher z-index -->
+                            <div class="relative z-20">
+                                <button type="button" onclick="document.getElementById('pdfFileInput').click()" class="py-2 px-4 text-xs font-bold text-brand-cyan bg-brand-cyan/10 border border-brand-cyan/30 rounded-xl hover:bg-brand-cyan/25 transition">
+                                    Browse PDF File
+                                </button>
+                                <input type="file" id="pdfFileInput" accept="application/pdf" class="hidden">
+                            </div>
+                        </div>
+
+                        <!-- PDF Parser Spinner -->
+                        <div id="pdfLoadingSpinner" class="hidden flex items-center justify-center gap-3 py-4 text-xs sm:text-sm text-brand-cyan bg-brand-dark/40 border border-[#00f2fe]/10 rounded-2xl">
+                            <svg class="animate-spin h-5 w-5 text-brand-cyan" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            <span class="font-semibold font-outfit">Parsing PDF layout pages in browser...</span>
+                        </div>
+
+                        <!-- Feedback Log -->
+                        <div id="parserFeedbackLog" class="hidden text-xs rounded-xl p-4 bg-brand-dark border border-[#00f2fe]/10 text-slate-400 font-mono max-h-32 overflow-y-auto space-y-1">
+                        </div>
+
+                        <!-- Fine-tune inputs grid -->
+                        <div class="border-t border-slate-800 pt-6">
+                            <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 mb-4">Workspace Input Coordinates:</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Headline & About Narrative</label>
+                                    <textarea id="headlineAbout" placeholder="Type or edit your headline and summary narrative..." class="w-full h-24 rounded-xl p-4 text-xs sm:text-sm text-slate-300"></textarea>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Skills List (Comma-separated)</label>
+                                        <textarea id="skillsList" placeholder="React, Node.js, Systems Architecture..." class="w-full h-20 rounded-xl p-4 text-xs text-slate-300"></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Endorsements & Honors Awards Description</label>
+                                        <textarea id="endorsements" placeholder="Paste counts of endorsements or recommendation quotes..." class="w-full h-20 rounded-xl p-4 text-xs text-slate-300"></textarea>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Portfolio & Project Links</label>
+                                        <textarea id="portfolio" placeholder="https://github.com/profile, https://substack.com..." class="w-full h-20 rounded-xl p-4 text-xs text-slate-300"></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Recent Post Drafts / Articles</label>
+                                        <textarea id="articles" placeholder="Recent thought leadership posts snippet..." class="w-full h-20 rounded-xl p-4 text-xs text-slate-300"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 1: DIAGNOSTIC SUITE & DETAILED METRICS -->
+                <section id="diagnostic-section" class="section-panel space-y-6">
+                    <div class="glass-panel p-6 md:p-8 rounded-3xl space-y-6">
+                        <div class="space-y-1">
+                            <h2 class="text-2xl font-black font-outfit text-white">Diagnostic Suite Analysis</h2>
+                            <p class="text-xs sm:text-sm text-slate-400">Heuristics-driven authority valuation. Recalculates dynamically as workspace coordinates modify.</p>
+                        </div>
+                        <div class="section-career-picker" data-section-id="diagnostic-section"></div>
+
+                        <!-- Dashboard top scores row -->
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                            
+                            <!-- Primary Score dial -->
+                            <div class="md:col-span-5 bg-brand-dark/40 border border-slate-800 p-6 rounded-3xl flex flex-col justify-center items-center relative overflow-hidden text-center">
+                                <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 mb-4 font-outfit">Authority Index</h3>
+                                <div class="relative h-48 w-48 flex justify-center items-center dial-container mb-4">
+                                    <canvas id="scoreChart" class="max-w-[200px] relative z-10"></canvas>
+                                    <div id="scoreText" class="absolute text-4xl font-black text-white font-outfit drop-shadow-[0_0_8px_rgba(0,242,254,0.6)] z-10">0%</div>
+                                </div>
+                                <div id="scoreLabel" class="inline-block px-3 py-1 rounded-full text-xs font-black uppercase text-brand-cyan bg-brand-cyan/10 border border-brand-cyan/20">UNRESOLVED</div>
+                            </div>
+
+                            <!-- Verdict Card -->
+                            <div class="md:col-span-7 bg-brand-dark/40 border border-slate-800 p-6 rounded-3xl flex flex-col justify-between border-l-4 border-brand-cyan relative overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-r from-brand-cyan/5 to-transparent pointer-events-none"></div>
+                                <div class="space-y-4 relative z-10">
+                                    <h3 class="text-xs font-bold uppercase tracking-wider text-brand-cyan font-outfit">Executive Valuation Summary</h3>
+                                    <div class="space-y-2">
+                                        <h4 class="text-2xl font-black text-white font-outfit leading-tight" id="verdictHeadline">Diagnostic Awaiting</h4>
+                                        <p id="finalVerdict" class="text-slate-300 text-xs sm:text-sm leading-relaxed">Provide headline and narrative data to auto-compile positioning blueprints.</p>
+                                    </div>
+                                </div>
+                                <div class="text-[11px] sm:text-xs text-slate-500 pt-4 border-t border-slate-800 flex justify-between items-center">
+                                    <span>Diagnostics Core v4.0</span>
+                                    <span class="text-brand-cyan">Real-Time Reactive Matrix</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Expansion Dimension Breakdown cards -->
+                        <div id="dimensionBreakdown" class="grid grid-cols-1 gap-6">
+                            <!-- Loaded dynamically via JS -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 2: HEADLINE & BIO CREATOR -->
+                <section id="optimizer-section" class="section-panel space-y-6">
+                    <div class="glass-panel p-6 md:p-8 rounded-3xl space-y-6">
+                        <div class="space-y-2">
+                            <h2 class="text-2xl font-black font-outfit text-white">Headline & Bio Copywriter</h2>
+                            <p class="text-xs sm:text-sm text-slate-400">Inject high-impact metrics vocabulary and generated professional positioning blueprints based on your data.</p>
+                        </div>
+                        <div class="section-career-picker" data-section-id="optimizer-section"></div>
+
+                        <!-- Side-by-side Layout -->
+                        <div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-stretch">
+                            <!-- Left: Current draft and Weak word highlighter -->
+                            <div class="xl:col-span-5 flex flex-col space-y-4">
+                                <div class="bg-brand-dark rounded-2xl p-5 border border-slate-800 flex-1 space-y-4 flex flex-col">
+                                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-outfit">Copywriter Workspace (Syncs with Profile)</h4>
+                                    <textarea id="liveBioInput" class="w-full h-48 rounded-xl p-3 text-xs sm:text-sm text-slate-300 font-mono flex-1 min-h-[180px]" placeholder="Modify your summary copy here..."></textarea>
+                                    
+                                    <!-- Highlighter Result Box -->
+                                    <div id="highlightedBioResult" class="p-4 rounded-xl border border-slate-800 bg-brand-dark-card text-xs text-slate-400 leading-relaxed min-h-[100px] max-h-56 overflow-y-auto">
+                                        Type summary text above to audit passive verb framing structures.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Generated Options -->
+                            <div class="xl:col-span-7 flex flex-col space-y-4">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-outfit">Synthesized Authority Blueprints (8 Variations)</h4>
+                                <div id="generatedHeadlinesWrapper" class="space-y-4 max-h-[500px] overflow-y-auto pr-1">
+                                    <!-- Dynamic elements loaded via JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 3: POST CREATOR & HOOK ENGINE -->
+                <section id="creator-section" class="section-panel space-y-6">
+                    <div class="glass-panel p-6 md:p-8 rounded-3xl space-y-6">
+                        <div class="space-y-2">
+                            <h2 class="text-2xl font-black font-outfit text-white">Post Creator & Hook Analyzer</h2>
+                            <p class="text-xs sm:text-sm text-slate-400">Analyze post metrics for hook tension, structural spacing, and emoji focus dynamically as you draft.</p>
+                        </div>
+                        <div class="section-career-picker" data-section-id="creator-section"></div>
+
+                        <div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-stretch">
+                            <!-- Left: Draft Post Area -->
+                            <div class="xl:col-span-6 flex flex-col space-y-4">
+                                <div class="bg-brand-dark border border-slate-800 rounded-2xl p-5 flex flex-col flex-1 space-y-4">
+                                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">LinkedIn Post Workspace</h4>
+                                    <textarea id="postDraftInput" class="w-full h-72 rounded-xl p-4 text-xs sm:text-sm text-slate-300 font-mono leading-relaxed" placeholder="Write post drafts here..."></textarea>
+                                    
+                                    <!-- Format optimizer button -->
+                                    <button onclick="improvePostFormat()" class="w-full py-3 text-xs font-black uppercase text-white btn-glow rounded-xl flex items-center justify-center gap-2">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                        <span>⚡ Auto-Optimize Hook & Formatting</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Right: Analysis Dashboard & Blueprints -->
+                            <div class="xl:col-span-6 flex flex-col gap-6">
+                                
+                                <!-- Mini analytics meters -->
+                                <div class="glass-panel p-5 rounded-2xl space-y-4">
+                                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Hook Performance Audit</h4>
+                                    
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-800/80">
+                                            <span class="text-[10px] sm:text-xs text-slate-500 uppercase font-semibold">Hook Strength</span>
+                                            <div id="hookMeterVal" class="text-xl font-bold text-white font-outfit">0%</div>
+                                        </div>
+                                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-800/80">
+                                            <span class="text-[10px] sm:text-xs text-slate-500 uppercase font-semibold">Whitespace spacing</span>
+                                            <div id="whiteMeterVal" class="text-xl font-bold text-white font-outfit">0%</div>
+                                        </div>
+                                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-800/80">
+                                            <span class="text-[10px] sm:text-xs text-slate-500 uppercase font-semibold">Emoji Density</span>
+                                            <div id="emojiMeterVal" class="text-xl font-bold text-white font-outfit">0%</div>
+                                        </div>
+                                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-800/80">
+                                            <span class="text-[10px] sm:text-xs text-slate-500 uppercase font-semibold">CTA Engagement</span>
+                                            <div id="ctaMeterVal" class="text-xl font-bold text-white font-outfit">0%</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Feedback summary text -->
+                                    <div id="postFeedbackDetails" class="p-3 bg-brand-cyan/5 border border-brand-cyan/10 text-xs text-slate-300 leading-relaxed rounded-xl space-y-1 font-sans">
+                                        Draft text to analyze algorithm conversion.
+                                    </div>
+                                </div>
+
+                                <!-- Post templates scrollbox -->
+                                <div class="glass-panel p-5 rounded-2xl flex-1 flex flex-col space-y-3">
+                                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-outfit">Viral Blueprint Templates</h4>
+                                    <div class="flex-1 overflow-y-auto max-h-[180px] space-y-2 pr-1" id="blueprintsWrapper">
+                                        <!-- Template cards loaded dynamically -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 4: TARGET CAREER MATRIX & SKILL GAPS -->
+                <section id="gaps-section" class="section-panel space-y-6">
+                    <div class="glass-panel p-6 md:p-8 rounded-3xl space-y-6">
+                        <div class="space-y-2">
+                            <h2 class="text-2xl font-black font-outfit text-white">Target Career Gap Optimizer</h2>
+                            <p class="text-xs sm:text-sm text-slate-400">Check alignments against your selected career tracks. Match, missing, or dilution fluff keywords are parsed dynamically.</p>
+                        </div>
+                        <div class="section-career-picker" data-section-id="gaps-section"></div>
+
+                        <!-- Dynamic SVG Progress Gauges Container for Selected Careers -->
+                        <div id="selectedCareersGaugesContainer" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                            <!-- Filled dynamically via JS -->
+                        </div>
+
+                        <!-- Skill gaps matrix display lists -->
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            
+                            <!-- Column 1: Matching skills -->
+                            <div class="bg-brand-dark/40 border border-slate-800 p-5 rounded-2xl flex flex-col space-y-4">
+                                <div class="flex items-center justify-between border-b border-[#00f2fe]/10 pb-2">
+                                    <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400">Matched Competencies</h4>
+                                    <span id="matchSkillsCount" class="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">0</span>
+                                </div>
+                                <div id="matchSkillsWrapper" class="flex flex-wrap gap-2 pt-2">
+                                    <!-- Filled dynamically -->
+                                </div>
+                            </div>
+
+                            <!-- Column 2: Missing skills -->
+                            <div class="bg-brand-dark/40 border border-slate-800 p-5 rounded-2xl flex flex-col space-y-4 border-t-2 border-brand-cyan">
+                                <div class="flex items-center justify-between border-b border-[#00f2fe]/10 pb-2">
+                                    <h4 class="text-xs font-bold uppercase tracking-wider text-brand-cyan">Missing Required (Click to Add)</h4>
+                                    <span id="missingSkillsCount" class="text-xs font-bold text-brand-cyan bg-brand-cyan/10 px-2 py-0.5 rounded">0</span>
+                                </div>
+                                <div id="missingSkillsWrapper" class="flex flex-wrap gap-2 pt-2">
+                                    <!-- Filled dynamically -->
+                                </div>
+                            </div>
+
+                            <!-- Column 3: Legacy fluff to prune -->
+                            <div class="bg-brand-dark/40 border border-slate-800 p-5 rounded-2xl flex flex-col space-y-4 border-t-2 border-rose-500">
+                                <div class="flex items-center justify-between border-b border-[#00f2fe]/10 pb-2">
+                                    <h4 class="text-xs font-bold uppercase tracking-wider text-rose-400">Legacy Fluff (Click to Prune)</h4>
+                                    <span id="legacySkillsCount" class="text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">0</span>
+                                </div>
+                                <div id="legacySkillsWrapper" class="flex flex-wrap gap-2 pt-2">
+                                    <!-- Filled dynamically -->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 5: DYNAMIC GROWTH ROADMAP -->
+                <section id="roadmap-section" class="section-panel space-y-6">
+                    <div class="glass-panel p-6 md:p-8 rounded-3xl space-y-6">
+                        <div class="section-career-picker" data-section-id="roadmap-section"></div>
+                        <!-- Top header card -->
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-gradient-to-r from-brand-cyan/10 to-brand-blue/5 border border-brand-cyan/20 p-6 rounded-2xl relative overflow-hidden">
+                            <div class="space-y-2 relative z-10">
+                                <h2 class="text-2xl font-black font-outfit text-white">Gamified Growth Roadmap</h2>
+                                <p class="text-xs sm:text-sm text-slate-300">Convert diagnostics into execution. Check off recommended actions, watch your simulated score compound, and push updates once optimized.</p>
+                            </div>
+                            <!-- Big rating badge -->
+                            <div class="flex items-center gap-3 bg-brand-dark/60 border border-brand-cyan/30 px-5 py-3 rounded-2xl simulated-badge relative z-10 shrink-0">
+                                <div class="text-right">
+                                    <span class="text-xs text-brand-cyan uppercase font-black tracking-wider block">Simulated Score</span>
+                                    <span id="roadmapSimScore" class="text-3xl font-black text-white font-outfit">0%</span>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">✓</div>
+                            </div>
+                        </div>
+
+                        <!-- Active tasks list -->
+                        <div class="space-y-4">
+                            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-outfit">Optimization Checklist Matrix</h3>
+                            <div id="activeChecklistWrapper" class="space-y-3">
+                                <!-- Loaded dynamically via JS -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
         </div>
 
         <!-- Personal Footer -->
-        <footer class="text-center pt-12 border-t border-slate-800">
-            <p class="text-slate-500 text-sm mb-4">Developed by The Digital Futurist</p>
-            <div class="flex justify-center space-x-6">
-                <a href="https://thomascherickal.com" class="text-blue-400 hover:text-blue-300 font-medium">thomascherickal.com</a>
-                <a href="https://topmate.io/thedigitalfuturist" class="text-slate-400 hover:text-white">Consulting</a>
+        <footer class="text-center pt-8 mt-auto border-t border-slate-800 space-y-2 relative z-10 text-xs">
+            <p class="text-slate-500">Developed by The Digital Futurist</p>
+            <div class="flex justify-center space-x-6 font-medium">
+                <a href="https://thomascherickal.com" target="_blank" class="text-blue-400 hover:text-blue-300 transition">thomascherickal.com</a>
+                <span class="text-slate-600">|</span>
+                <a href="https://topmate.io/thedigitalfuturist" target="_blank" class="text-slate-400 hover:text-white transition">Executive Consulting</a>
             </div>
         </footer>
+
     </div>
 
+    <!-- Core Scripts -->
     <script src="expert_system.js"></script>
     <script>
+        // State variables
         let chartInstance = null;
+        let diagnosticScore = 0;
+        let checklistTasks = [];
+        let completedTaskIndexes = new Set();
+        
+        // Multi-Select Career Target Setup
+        let selectedCareerKeys = ['ai_ml_engineer']; // Default chosen role
         const expertSystem = new LinkedInExpertSystem();
 
-        function runDiagnostic() {
+        // 5 LinkedIn viral post blueprints
+        const viralBlueprints = [
+            {
+                title: "The Contrarian Take",
+                hook: "Unpopular opinion: [Legacy view or common wisdom] is complete career suicide.\n\nHere is what the top 1% of builders actually do:",
+                body: "\n\n1. [Step one: contrarian assertion]\n2. [Step two: unique proof element]\n3. [Step three: action step]\n\nStop following advice from the 2010s.\n\nThe game has changed.",
+                cta: "💬 Disagree? Let's discuss in the comments."
+            },
+            {
+                title: "The Behind-the-Scenes Case Study",
+                hook: "We just scaled [Project/System] by 10x in under [Timeframe].\n\nNo huge budgets. No massive engineering teams.\n\nHere is the exact technical breakdown of what we built:",
+                body: "\n\n▸ The Bottleneck: [Problem specification]\n▸ The Architecture: [Framework/Platform details]\n▸ The Result: [Explicit business KPI/metric improvement]\n\nWe documented the entire playbook so you don't have to repeat our mistakes.",
+                cta: "💬 Want the full architecture drawing? Drop a 'PLAYBOOK' in comments and I'll send it."
+            },
+            {
+                title: "The Lessons Learned Blueprint",
+                hook: "I spent [Number] years in [Industry] working alongside top tech leaders.\n\nHere are 3 harsh truths about [Skill/Discipline] they won't tell you in bootcamps:",
+                body: "\n\n⚡ 1. [Truth One: Outcome over tools]\n⚡ 2. [Truth Two: Code represents liabilities, systems are assets]\n⚡ 3. [Truth Three: Networking beats hard skills]\n\nWhich of these resonates most with your career?",
+                cta: "💬 Drop a comment below, I'd love to know."
+            },
+            {
+                title: "The Step-by-Step Tutorial",
+                hook: "Most teams spend [Amount of money/Time] configuring [Complex Task].\n\nYou can architect this in under 5 minutes with [Tool/Framework].\n\nHere is the step-by-step masterclass:",
+                body: "\n\n✔ Step 1: Initialize [Action details]\n✔ Step 2: Configure [Code details]\n✔ Step 3: Verify [Metric details]\n\nSave this post for your next blueprint run.",
+                cta: "💬 Need help with your stack? DM me 'AUDIT'."
+            },
+            {
+                title: "The Future Trend Announcement",
+                hook: "Generative AI is rendering [Traditional Skill] completely obsolete by [Year].\n\nIf you aren't adapting to [Future Skill], you are building legacy debt.\n\nHere is where the puck is going:",
+                body: "\n\n▸ The Transition: [Description of industry paradigm shift]\n▸ The Stack: [Which modern components are taking over]\n▸ The Prep: [What you should learn this weekend]\n\nThe builders who master this now will command absolute authority.",
+                cta: "💬 How is your organization preparing? Let's share insights."
+            }
+        ];
+
+        // On Load Page Init
+        window.addEventListener('load', async () => {
+            // Asynchronously fetch and merge plaintext roles database
+            await expertSystem.loadRolesDatabase();
+
+            renderCareersDropdown();
+            initWorkspaceHandlers();
+            loadSessionData();
+            renderBlueprints();
+            
+            // Render synchronized localized section selectors!
+            renderSectionCareerPickers();
+            
+            // Execute default calculations
+            updateDashboardRealtime();
+            setupScrollSpy();
+            
+            // Global click to close selectors
+            window.addEventListener('click', (e) => {
+                // Close header selector
+                const dropdown = document.getElementById('careerDropdownMenu');
+                const btn = document.getElementById('careerSelectBtn');
+                if (dropdown && !dropdown.contains(e.target) && !btn.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                    document.getElementById('dropdownArrow').classList.remove('rotate-180');
+                }
+
+                // Close all mini-dropdowns in sections
+                document.querySelectorAll('.section-career-picker').forEach(container => {
+                    const sectionId = container.getAttribute('data-section-id');
+                    const menu = document.getElementById(`menu-${sectionId}`);
+                    const triggerBtn = menu ? menu.previousElementSibling : null;
+                    if (menu && triggerBtn && !menu.contains(e.target) && !triggerBtn.contains(e.target)) {
+                        menu.classList.add('hidden');
+                        const arrow = document.getElementById(`arrow-${sectionId}`);
+                        if (arrow) arrow.classList.remove('rotate-180');
+                    }
+                });
+            });
+        });
+
+        // Toggle multi-select career dropdown list
+        function toggleCareerDropdown(e) {
+            e.stopPropagation();
+            const dropdown = document.getElementById('careerDropdownMenu');
+            const arrow = document.getElementById('dropdownArrow');
+            const isHidden = dropdown.classList.contains('hidden');
+            
+            if (isHidden) {
+                dropdown.classList.remove('hidden');
+                arrow.classList.add('rotate-180');
+            } else {
+                dropdown.classList.add('hidden');
+                arrow.classList.remove('rotate-180');
+            }
+        }
+
+        // Render target careers multi-select inside header
+        function renderCareersDropdown() {
+            const container = document.getElementById('careersListContainer');
+            container.innerHTML = '';
+
+            const roles = expertSystem.dictionaries.roles;
+            
+            // Let's divide 80 roles into 4 groups for premium design aesthetics
+            const groups = {
+                "Technical & Architecture": [],
+                "Leadership & Strategy": [],
+                "Marketing, Sales & Creative": [],
+                "Professional, Academic & Medical": []
+            };
+
+            // Heuristic routing into groups
+            Object.keys(roles).forEach(key => {
+                const r = roles[key];
+                if (key === 'educator_teacher' || key === 'attorney_lawyer' || key === 'academic_professor' || key === 'historian' || key === 'medical_doctor' || key === 'medical_surgeon' || key === 'psychologist' || key === 'translator_linguist' || key === 'real_estate_broker') {
+                    groups["Professional, Academic & Medical"].push({ key, title: r.title });
+                } else if (key === 'graphic_artist' || key === 'technical_writer_author' || key === 'journalist' || key === 'brand_strategist' || key === 'creative_director' || key === 'content_strategist' || key === 'public_relations' || key.includes('marketer') || key.includes('sales') || key === 'seo_specialist') {
+                    groups["Marketing, Sales & Creative"].push({ key, title: r.title });
+                } else if (key.includes('engineer') || key.includes('dev') || key.includes('architect') || key === 'dba' || key.includes('admin') || key.includes('data') || key === 'mathematician' || key === 'physicist') {
+                    groups["Technical & Architecture"].push({ key, title: r.title });
+                } else {
+                    groups["Leadership & Strategy"].push({ key, title: r.title });
+                }
+            });
+
+            // Populate groups
+            Object.keys(groups).forEach(gName => {
+                const groupDiv = document.createElement('div');
+                groupDiv.className = 'space-y-2';
+                groupDiv.innerHTML = `<h4 class="text-xs font-bold uppercase tracking-wider text-brand-cyan">${gName}</h4>`;
+                
+                const grid = document.createElement('div');
+                grid.className = 'grid grid-cols-1 gap-1.5';
+                
+                groups[gName].forEach(role => {
+                    const label = document.createElement('label');
+                    const isChecked = selectedCareerKeys.includes(role.key);
+                    
+                    label.className = `flex items-center gap-2.5 p-2 rounded-lg cursor-pointer transition select-none hover:bg-slate-800/80 text-slate-300 text-xs`;
+                    label.innerHTML = `
+                        <input type="checkbox" value="${role.key}" ${isChecked ? 'checked' : ''} onchange="toggleCareerSelection(event)" class="rounded border-slate-700 bg-brand-dark focus:ring-brand-cyan text-brand-cyan cursor-pointer w-4 h-4">
+                        <span class="truncate">${role.title}</span>
+                    `;
+                    grid.appendChild(label);
+                });
+                
+                groupDiv.appendChild(grid);
+                container.appendChild(groupDiv);
+            });
+
+            updateSelectedPills();
+        }
+
+        // Toggle role checkbox changed
+        function toggleCareerSelection(e) {
+            const key = e.target.value;
+            const isChecked = e.target.checked;
+
+            if (isChecked) {
+                if (!selectedCareerKeys.includes(key)) {
+                    selectedCareerKeys.push(key);
+                }
+            } else {
+                // Keep at least one selected target role
+                if (selectedCareerKeys.length > 1) {
+                    selectedCareerKeys = selectedCareerKeys.filter(k => k !== key);
+                } else {
+                    e.target.checked = true;
+                    alert("A minimum of one target career path must remain selected.");
+                }
+            }
+
+            updateSelectedPills();
+            syncCheckboxesState();
+            updateDashboardRealtime();
+            saveSessionData();
+        }
+
+        // Mini-selector Dropdown Toggler
+        function toggleMiniDropdown(e, menuId, arrowId) {
+            e.stopPropagation();
+            const dropdown = document.getElementById(menuId);
+            const arrow = document.getElementById(arrowId);
+            const isHidden = dropdown.classList.contains('hidden');
+
+            // Close all other mini-dropdowns first
+            document.querySelectorAll('.section-career-picker').forEach(container => {
+                const sectionId = container.getAttribute('data-section-id');
+                const otherMenuId = `menu-${sectionId}`;
+                const otherArrowId = `arrow-${sectionId}`;
+                if (otherMenuId !== menuId) {
+                    const menuEl = document.getElementById(otherMenuId);
+                    if (menuEl) menuEl.classList.add('hidden');
+                    const arrowEl = document.getElementById(otherArrowId);
+                    if (arrowEl) arrowEl.classList.remove('rotate-180');
+                }
+            });
+
+            if (isHidden) {
+                dropdown.classList.remove('hidden');
+                arrow.classList.add('rotate-180');
+            } else {
+                dropdown.classList.add('hidden');
+                arrow.classList.remove('rotate-180');
+            }
+        }
+
+        // Helper to sync selection from mini dropdowns in real-time
+        function toggleCareerSelectionMini(e, roleKey) {
+            const isChecked = e.target.checked;
+
+            if (isChecked) {
+                if (!selectedCareerKeys.includes(roleKey)) {
+                    selectedCareerKeys.push(roleKey);
+                }
+            } else {
+                if (selectedCareerKeys.length > 1) {
+                    selectedCareerKeys = selectedCareerKeys.filter(k => k !== roleKey);
+                } else {
+                    e.target.checked = true;
+                    alert("A minimum of one target career path must remain selected.");
+                }
+            }
+
+            updateSelectedPills();
+            syncCheckboxesState();
+            updateDashboardRealtime();
+            saveSessionData();
+        }
+
+        // Synchronize checked checkbox elements in all dropdowns (header + all sections)
+        function syncCheckboxesState() {
+            // Update header checkboxes
+            const headerContainer = document.getElementById('careersListContainer');
+            if (headerContainer) {
+                headerContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                    cb.checked = selectedCareerKeys.includes(cb.value);
+                });
+            }
+
+            // Update all section mini-dropdown checkboxes and texts
+            document.querySelectorAll('.section-career-picker').forEach(container => {
+                const sectionId = container.getAttribute('data-section-id');
+                const menu = document.getElementById(`menu-${sectionId}`);
+                if (menu) {
+                    menu.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                        cb.checked = selectedCareerKeys.includes(cb.value);
+                    });
+                }
+                
+                const textEl = document.getElementById(`text-${sectionId}`);
+                if (textEl) {
+                    const roles = expertSystem.dictionaries.roles;
+                    const selectedTitles = selectedCareerKeys.map(k => roles[k]?.title || k).join(', ');
+                    textEl.innerText = selectedTitles || "Choose career targets...";
+                }
+            });
+        }
+
+        // Render mini-checkboxes HTML for section pickers
+        function renderMiniCheckboxesMarkup(sectionId) {
+            const roles = expertSystem.dictionaries.roles;
+            let markup = '';
+            
+            Object.keys(roles).forEach(key => {
+                const r = roles[key];
+                const isChecked = selectedCareerKeys.includes(key);
+                markup += `
+                    <label class="flex items-center gap-2.5 p-1.5 rounded hover:bg-slate-800/80 cursor-pointer transition select-none text-slate-300 font-sans font-medium text-[11px]">
+                        <input type="checkbox" value="${key}" ${isChecked ? 'checked' : ''} onchange="toggleCareerSelectionMini(event, '${key}')" class="rounded border-slate-700 bg-brand-dark focus:ring-brand-cyan text-brand-cyan cursor-pointer w-3.5 h-3.5 shrink-0">
+                        <span class="truncate">${r.title}</span>
+                    </label>
+                `;
+            });
+            return markup;
+        }
+
+        // Render target careers multi-select inside each section of the app
+        function renderSectionCareerPickers() {
+            const containers = document.querySelectorAll('.section-career-picker');
+            const roles = expertSystem.dictionaries.roles;
+            
+            containers.forEach(container => {
+                const sectionId = container.getAttribute('data-section-id');
+                const menuId = `menu-${sectionId}`;
+                const textId = `text-${sectionId}`;
+                const arrowId = `arrow-${sectionId}`;
+                
+                const selectedTitles = selectedCareerKeys.map(k => roles[k]?.title || k).join(', ');
+                
+                container.innerHTML = `
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 bg-brand-dark-card border border-brand-cyan/15 rounded-2xl text-[11px] relative z-30 mb-2 glass-panel">
+                        <div class="space-y-0.5 shrink-0">
+                            <span class="text-slate-400 font-bold uppercase tracking-wider block font-outfit text-xs">🎯 Target Careers in this Section:</span>
+                            <span class="text-slate-500 font-sans block">Modify targets below to recalculate section alignments dynamically</span>
+                        </div>
+                        
+                        <!-- Compact Dropdown trigger -->
+                        <div class="relative flex-1 sm:max-w-xs z-30">
+                            <button type="button" onclick="toggleMiniDropdown(event, '${menuId}', '${arrowId}')" class="w-full bg-brand-dark/95 border border-brand-cyan/20 rounded-xl px-3 py-2 text-slate-300 font-semibold flex items-center justify-between text-left hover:border-brand-cyan select-none transition">
+                                <span class="truncate pr-1 text-slate-300" id="${textId}">${selectedTitles || 'Choose targets...'}</span>
+                                <svg class="w-3.5 h-3.5 text-brand-cyan shrink-0 transition-transform duration-200" id="${arrowId}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            
+                            <!-- Checkbox list menu -->
+                            <div id="${menuId}" class="hidden absolute top-[110%] right-0 w-[280px] bg-brand-dark/95 backdrop-blur-2xl border border-brand-cyan/25 rounded-xl p-2.5 shadow-2xl z-50 max-h-[180px] overflow-y-auto space-y-1.5 scrollbar-thin">
+                                ${renderMiniCheckboxesMarkup(sectionId)}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Filter 80 roles list via search input
+        function filterCareersList() {
+            const input = document.getElementById('careerSearchInput');
+            if (!input) return;
+            const q = input.value.toLowerCase();
+            const container = document.getElementById('careersListContainer');
+            const labels = container.querySelectorAll('label');
+
+            labels.forEach(label => {
+                const text = label.innerText.toLowerCase();
+                if (text.includes(q)) {
+                    label.style.display = 'flex';
+                } else {
+                    label.style.display = 'none';
+                }
+            });
+        }
+
+        // Update glowing selection pills next to header selector
+        function updateSelectedPills() {
+            const wrapper = document.getElementById('selectedPillsWrapper');
+            const textWidget = document.getElementById('selectedCareersText');
+            
+            wrapper.innerHTML = '';
+            const roles = expertSystem.dictionaries.roles;
+
+            if (selectedCareerKeys.length === 0) {
+                if (textWidget) textWidget.innerText = "Choose career targets...";
+                return;
+            }
+
+            // Sync text label
+            if (textWidget) {
+                if (selectedCareerKeys.length === 1) {
+                    textWidget.innerText = roles[selectedCareerKeys[0]].title;
+                } else {
+                    textWidget.innerText = `${roles[selectedCareerKeys[0]].title} (+${selectedCareerKeys.length - 1} more)`;
+                }
+            }
+
+            // Populate pills
+            selectedCareerKeys.forEach(key => {
+                const pill = document.createElement('span');
+                pill.className = "px-2.5 py-1 text-xs rounded-full border border-brand-cyan bg-brand-cyan/10 text-brand-cyan font-semibold flex items-center gap-1 select-none animate-delay-100";
+                pill.innerHTML = `
+                    <span>${roles[key].title}</span>
+                    <button onclick="removeCareerPill('${key}')" class="text-brand-cyan hover:text-white font-bold ml-1 text-xs select-none">×</button>
+                `;
+                wrapper.appendChild(pill);
+            });
+        }
+
+        function removeCareerPill(key) {
+            if (selectedCareerKeys.length > 1) {
+                selectedCareerKeys = selectedCareerKeys.filter(k => k !== key);
+                
+                // Uncheck in dropdown menu list
+                const container = document.getElementById('careersListContainer');
+                const checkbox = container.querySelector(`input[value="${key}"]`);
+                if (checkbox) checkbox.checked = false;
+
+                updateSelectedPills();
+                updateDashboardRealtime();
+                saveSessionData();
+            } else {
+                alert("A minimum of one target career path must remain selected.");
+            }
+        }
+
+        // Robust PDF text reconstructor that groups text items by line height to preserve layout line breaks
+        function reconstructTextWithLines(items) {
+            if (!items || items.length === 0) return "";
+            
+            // Sort primarily by Y descending (top to bottom), then by X ascending (left to right)
+            items.sort((a, b) => {
+                const yDiff = b.transform[5] - a.transform[5];
+                if (Math.abs(yDiff) > 3) return yDiff; // separate lines (3 points threshold)
+                return a.transform[4] - b.transform[4]; // same line left to right
+            });
+
+            let lines = [];
+            let currentLine = [];
+            let currentY = null;
+
+            for (let item of items) {
+                if (!item.str || item.str.trim() === '') continue;
+                
+                if (currentY === null) {
+                    currentY = item.transform[5];
+                    currentLine.push(item);
+                } else if (Math.abs(currentY - item.transform[5]) <= 3) {
+                    currentLine.push(item);
+                } else {
+                    // New line
+                    lines.push(currentLine);
+                    currentLine = [item];
+                    currentY = item.transform[5];
+                }
+            }
+            if (currentLine.length > 0) {
+                lines.push(currentLine);
+            }
+
+            // Join items on the same line with a space, and join different lines with \n
+            return lines.map(lineItems => {
+                lineItems.sort((a, b) => a.transform[4] - b.transform[4]);
+                return lineItems.map(item => item.str).join(' ');
+            }).join('\n');
+        }
+
+        // Initialize drag-drop and dynamic real-time change listeners
+        function initWorkspaceHandlers() {
+            const dumpText = document.getElementById('rawProfileDump');
+            const dropZone = document.getElementById('dropZone');
+            const fileInput = document.getElementById('pdfFileInput');
+
+            // Drag and drop events
+            dumpText.addEventListener('dragenter', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('dragover');
+            });
+            dumpText.addEventListener('dragleave', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+            });
+            dumpText.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+            dumpText.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    if (files[0].type === 'application/pdf' || files[0].name.toLowerCase().endsWith('.pdf')) {
+                        parsePDFFile(files[0]);
+                    }
+                }
+            });
+
+            // Browse file selection changed
+            fileInput.addEventListener('change', (e) => {
+                const files = e.target.files;
+                if (files.length > 0) {
+                    parsePDFFile(files[0]);
+                }
+            });
+
+            // Auto-sync bidirectional biography field
+            document.getElementById('headlineAbout').addEventListener('input', (e) => {
+                document.getElementById('liveBioInput').value = e.target.value;
+            });
+            document.getElementById('liveBioInput').addEventListener('input', (e) => {
+                document.getElementById('headlineAbout').value = e.target.value;
+            });
+
+            // Bind REAL-TIME recalculations on every keystroke/change in any field!
+            const interactiveInputs = [
+                'headlineAbout', 'skillsList', 'endorsements', 'portfolio', 
+                'articles', 'liveBioInput', 'postDraftInput'
+            ];
+            interactiveInputs.forEach(id => {
+                document.getElementById(id).addEventListener('input', () => {
+                    updateDashboardRealtime();
+                    saveSessionData();
+                });
+            });
+        }
+
+        // PDF.js worker setup
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+
+        // Parse PDF file using clientside PDF.js
+        function parsePDFFile(file) {
+            if (!file) return;
+
+            const spinner = document.getElementById('pdfLoadingSpinner');
+            const logsBox = document.getElementById('parserFeedbackLog');
+            
+            spinner.classList.remove('hidden');
+            logsBox.classList.remove('hidden');
+            logsBox.innerHTML = `<div>▸ Initializing PDF extractor engine...</div>`;
+
+            const reader = new FileReader();
+            reader.onerror = function() {
+                spinner.classList.add('hidden');
+                alert("Error reading PDF file from disk.");
+            };
+
+            reader.onload = function(e) {
+                const typedarray = new Uint8Array(e.target.result);
+                
+                pdfjsLib.getDocument(typedarray).promise.then(function(pdf) {
+                    logsBox.innerHTML += `<div>▸ PDF successfully loaded. Pages: ${pdf.numPages}. Initiating parsing sequence...</div>`;
+                    
+                    let maxPages = pdf.numPages;
+                    let countPromises = [];
+                    
+                    // Parse text elements out of each page, separating left column and right column if a sidebar exists
+                    for (let j = 1; j <= maxPages; j++) {
+                        countPromises.push(
+                            pdf.getPage(j).then(function(page) {
+                                return page.getTextContent().then(function(textContent) {
+                                    const items = textContent.items;
+                                    
+                                    // Check if this page has a narrow left column sidebar (Contact, Skills, Honors & Awards, Languages)
+                                    const hasSidebarKeyword = items.some(item => {
+                                        const x = item.transform ? item.transform[4] : 0;
+                                        const s = item.str ? item.str.toLowerCase().trim() : "";
+                                        return x < 210 && (s === "contact" || s === "top skills" || s === "languages" || s.includes("honors") || s.includes("awards") || s.includes("certifications") || s.includes("projects") || s.includes("publications") || s.includes("education"));
+                                    });
+                                    const hasSidebar = (j <= 2) || hasSidebarKeyword;
+                                    
+                                    if (hasSidebar) {
+                                        // Left pane threshold: typically x < 220 points
+                                        const leftPaneItems = items.filter(item => item.transform && item.transform[4] < 220);
+                                        const rightPaneItems = items.filter(item => item.transform && item.transform[4] >= 220);
+                                        
+                                        // Reconstruct multi-line layout blocks for both columns
+                                        const leftText = reconstructTextWithLines(leftPaneItems);
+                                        const rightText = reconstructTextWithLines(rightPaneItems);
+                                        
+                                        return { leftText, rightText };
+                                    } else {
+                                        // Reconstruct standard layout page
+                                        const fullText = reconstructTextWithLines(items);
+                                        return { leftText: "", rightText: fullText };
+                                    }
+                                });
+                            })
+                        );
+                    }
+                    
+                    Promise.all(countPromises).then(function(pageResults) {
+                        spinner.classList.add('hidden');
+                        
+                        // Group all left column content (which has skills, languages, awards)
+                        const allLeftText = pageResults.map(r => r.leftText).filter(t => t.length > 0).join('\n');
+                        const allRightText = pageResults.map(r => r.rightText).filter(t => t.length > 0).join('\n');
+                        
+                        // Assemble RIGHT pane first (Name & Headline), followed by LEFT sidebar text.
+                        // This guarantees Name & Headline are processed first in default 'headline_about' state.
+                        const rawText = allRightText + '\n\n' + allLeftText;
+                        
+                        if (rawText && rawText.trim().length > 50) {
+                            logsBox.innerHTML += `<div>▸ Content parsed successfully (${rawText.length} characters found). Initiating expert system heuristics...</div>`;
+                            
+                            const parsed = expertSystem.parseRawProfile(rawText);
+                            if (parsed) {
+                                document.getElementById('headlineAbout').value = parsed.ha;
+                                document.getElementById('skillsList').value = parsed.skills;
+                                document.getElementById('endorsements').value = parsed.ends;
+                                document.getElementById('portfolio').value = parsed.port;
+                                document.getElementById('articles').value = parsed.arts;
+                                document.getElementById('liveBioInput').value = parsed.ha;
+
+                                // Output diagnostics logs
+                                logsBox.innerHTML += parsed.log.map(l => `<div>▸ Heuristic: ${l}</div>`).join('');
+                                
+                                // Dynamic re-calculation & persistence
+                                updateDashboardRealtime();
+                                saveSessionData();
+                                
+                                alert("Success! PDF parsed successfully. Scorecard matrices have updated dynamically!");
+                                
+                                // Scroll smoothly to diagnostics
+                                document.getElementById('diagnostic-section').scrollIntoView({ behavior: 'smooth' });
+                            } else {
+                                alert("Expert System Heuristic parse error: Failed to identify structural sections in the PDF text.");
+                            }
+                        } else {
+                            alert("Text extraction failed. Ensure your PDF is a standard LinkedIn exported PDF, not a scanned image.");
+                        }
+                    }).catch(err => {
+                        spinner.classList.add('hidden');
+                        console.error("PDF page parse error: ", err);
+                        alert("Error parsing PDF page items: " + err.message);
+                    });
+                }).catch(err => {
+                    spinner.classList.add('hidden');
+                    console.error("PDF load error: ", err);
+                    alert("Mozilla PDF engine failed to load PDF buffer: " + err.message);
+                });
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        // Scroll smooth anchor actions
+        function scrollToSection(sectionId) {
+            const el = document.getElementById(sectionId);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+                
+                // Highlight active button immediately
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.getElementById(`nav-${sectionId}`).classList.add('active');
+            }
+        }
+
+        // Setup Scroll Spy to track viewport and highlight correct tab
+        function setupScrollSpy() {
+            const sections = document.querySelectorAll('.section-panel');
+            const navButtons = document.querySelectorAll('.tab-btn');
+
+            window.addEventListener('scroll', () => {
+                let currentSectionId = "importer-section";
+                let minDistance = Infinity;
+
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const distance = Math.abs(rect.top - 120); // target vertical check offset
+                    if (distance < minDistance && rect.bottom > 150) {
+                        minDistance = distance;
+                        currentSectionId = section.id;
+                    }
+                });
+
+                navButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.id === `nav-${currentSectionId}`) {
+                        btn.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Master Real-Time Calculations Coordinator
+        function updateDashboardRealtime() {
             const data = {
                 ha: document.getElementById('headlineAbout').value,
                 skills: document.getElementById('skillsList').value,
@@ -196,48 +1125,67 @@
                 arts: document.getElementById('articles').value
             };
 
-            if(!data.ha) { alert("Please at least provide Headline/About content."); return; }
+            // 1. Run Core Diagnostics
+            if (data.ha.trim().length > 0) {
+                const dimensions = expertSystem.runDiagnostic(data);
+                
+                // CALCULATE COMPOSITE ALIGNMENT RATING across all selected roles!
+                let sumGaps = 0;
+                selectedCareerKeys.forEach(roleKey => {
+                    const gaps = expertSystem.runGapAnalysis(data.skills, roleKey);
+                    sumGaps += gaps.score;
+                });
+                const compositeGap = Math.round(sumGaps / selectedCareerKeys.length);
 
-            const dimensions = expertSystem.runDiagnostic(data);
-            const finalAvg = Math.round(dimensions.reduce((acc, curr) => acc + curr.data.score, 0) / 5);
-            
-            displayResults(finalAvg, dimensions);
+                // Overall rating = 50% core diagnostics + 50% target job alignments
+                const coreAvg = Math.round(dimensions.reduce((acc, curr) => acc + curr.data.score, 0) / 5);
+                diagnosticScore = Math.round((coreAvg + compositeGap) / 2);
+
+                displayDiagnosticResults(diagnosticScore, dimensions);
+                
+                // Regenerate roadmap tasks including role-specific items
+                generateChecklist(dimensions);
+            } else {
+                displayDiagnosticResetState();
+            }
+
+            // 2. Run Headline Generator & Weak Verb Audit
+            renderHeadlineOptions();
+            highlightPassiveWords();
+
+            // 3. Run Post Draft Hook Metrics
+            analyzeDraftPost();
+
+            // 4. Run Target Career Competency Gaps
+            runCareerGapCheck();
         }
 
-        function displayResults(avg, dims) {
-            const resultsDiv = document.getElementById('results');
-            resultsDiv.classList.remove('hidden');
-            
+        // Display results
+        function displayDiagnosticResults(avg, dims) {
             const scoreText = document.getElementById('scoreText');
-            let current = 0;
-            const target = avg;
-            const duration = 1500;
-            const stepTime = Math.abs(Math.floor(duration / target));
-            
-            const timer = setInterval(() => {
-                current += 1;
-                scoreText.innerText = current + "%";
-                if (current >= target) {
-                    clearInterval(timer);
-                    scoreText.innerText = target + "%";
-                }
-            }, stepTime || 20);
-            
+            const scoreLabel = document.getElementById('scoreLabel');
+
+            scoreText.innerText = avg + "%";
+            renderScoreChart(avg);
+
+            // Populate breakdown dimension cards
             const container = document.getElementById('dimensionBreakdown');
             container.innerHTML = '';
             
-            let delay = 100;
             dims.forEach((dim) => {
                 const card = document.createElement('div');
-                card.className = 'glass-panel p-6 rounded-2xl flex flex-col space-y-4 opacity-0 transform translate-y-4 transition-all duration-500 ease-out';
+                card.className = 'glass-panel p-6 rounded-2xl flex flex-col space-y-4';
                 
                 let editsHtml = '';
                 if (dim.data.edits && dim.data.edits.length > 0) {
-                    const editsList = dim.data.edits.map(edit => `<li class="flex items-start"><span class="text-[#00f2fe] mr-2 mt-0.5">▹</span><span>${edit}</span></li>`).join('');
+                    const editsList = dim.data.edits.map(edit => `<li class="flex items-start text-xs"><span class="text-brand-cyan mr-2 mt-0.5">▹</span><span>${edit}</span></li>`).join('');
                     editsHtml = `
-                        <div class="mt-4 pt-4 border-t border-slate-700/50">
-                            <h5 class="text-[#4facfe] font-semibold text-xs uppercase tracking-wider mb-2 flex items-center"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> Expert System Suggested Edits</h5>
-                            <ul class="text-slate-400 text-sm space-y-2">
+                        <div class="mt-2 pt-3 border-t border-slate-800/80">
+                            <h5 class="text-brand-blue font-bold text-[11px] uppercase tracking-wider mb-2 flex items-center">
+                                <svg class="w-3.5 h-3.5 mr-1 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> 
+                                Heuristics Action Directives
+                            </h5>
+                            <ul class="text-slate-400 space-y-2.5">
                                 ${editsList}
                             </ul>
                         </div>
@@ -245,66 +1193,78 @@
                 }
 
                 card.innerHTML = `
-                    <div class="flex justify-between items-center border-b border-[#00f2fe]/20 pb-3">
-                        <span class="font-bold text-white font-outfit text-xl">${dim.name}</span>
-                        <span class="gradient-text font-black text-2xl">${dim.data.score}%</span>
+                    <div class="flex justify-between items-center border-b border-[#00f2fe]/10 pb-3">
+                        <span class="font-bold text-white font-outfit text-base">${dim.name}</span>
+                        <span class="gradient-text font-black text-lg">${dim.data.score}%</span>
                     </div>
-                    <div class="text-slate-300 text-sm leading-relaxed space-y-3">
-                        <h4 class="text-[#00f2fe] font-semibold uppercase tracking-wider text-xs">Diagnostic Analysis</h4>
+                    <div class="text-slate-300 text-xs sm:text-sm leading-relaxed space-y-2">
+                        <h4 class="text-brand-cyan font-bold uppercase tracking-wider text-[10px]">Diagnostic Audit</h4>
                         <p>${dim.data.analysis}</p>
                     </div>
                     ${editsHtml}
                 `;
                 container.appendChild(card);
-                
-                setTimeout(() => {
-                    card.classList.remove('opacity-0', 'translate-y-4');
-                }, delay);
-                delay += 150;
             });
 
-            const verdict = document.getElementById('finalVerdict');
+            // Set Verdict Details
+            const verdictHeadline = document.getElementById('verdictHeadline');
+            const verdictText = document.getElementById('finalVerdict');
             let level = "None";
             let desc = "";
 
             if (avg >= 91) {
-                level = "Extraordinary";
-                desc = "Your profile is in the top 1% of professionals. It signals deep technical competence and strategic vision. Recommendation: Shift focus from broad appeal to high-ticket, exclusive consulting and proprietary content.";
+                level = "Extraordinary Elite (Top 1%)";
+                desc = "Your profile signals deep strategic domain competence and authority positioning. Recommendation: Shift focus from broad appeals to high-ticket corporate consulting advisory and proprietary long-form publications.";
+                scoreLabel.className = "inline-block px-3 py-1 rounded-full text-xs font-black uppercase text-emerald-400 bg-emerald-400/10 border border-emerald-400/20";
             } else if (avg >= 76) {
-                level = "Very High";
-                desc = "You have an outstanding profile. It effectively communicates your authority. Continue to refine your portfolio and build deeper relationships with industry leaders.";
+                level = "Very High (Authority Master)";
+                desc = "You have an outstanding profile structure. It effectively broadcasts peer validation and project proofs. Double down on strategic thought leadership posts to nurture incoming organic reach.";
+                scoreLabel.className = "inline-block px-3 py-1 rounded-full text-xs font-black uppercase text-brand-cyan bg-brand-cyan/10 border border-brand-cyan/20";
             } else if (avg >= 61) {
-                level = "High";
-                desc = "You have a strong, well-structured profile. To reach the next level of elite positioning, focus heavily on generating public Proof of Work and farming high-quality endorsements.";
+                level = "High Professional";
+                desc = "Strong well-structured foundations, but your authority lacks robust social proof matrices or high-impact action framing. Systematize recommendations to command higher premium inbound attention.";
+                scoreLabel.className = "inline-block px-3 py-1 rounded-full text-xs font-black uppercase text-brand-blue bg-brand-blue/10 border border-brand-blue/20";
             } else if (avg >= 41) {
-                level = "Medium";
-                desc = "Solid foundational profile with clear identity, but you are currently trapped in the 'average professional' tier. You must aggressively optimize your weak points above to command premium attention.";
-            } else if (avg >= 26) {
-                level = "Low";
-                desc = "Your profile is underperforming and underselling your true value. Execute the expert system recommendations to turn this passive resume into an active inbound lead generation engine.";
-            } else if (avg >= 11) {
-                level = "Very Low";
-                desc = "Your profile is currently a massive liability. Start immediately by rewriting your identity narrative and mapping out your skill architecture.";
+                level = "Medium (Baseline Employee)";
+                desc = "Solid basic identity, but you are currently trapped in the 'generic legacy specialist' tier. You must aggressively expand project proof URLs, add futuristic skills, and prune generic resume buzzwords.";
+                scoreLabel.className = "inline-block px-3 py-1 rounded-full text-xs font-black uppercase text-amber-500 bg-amber-500/10 border border-amber-500/20";
             } else {
-                level = "None";
-                desc = "Your profile is effectively blank or severely lacking in all critical areas. You must build your professional identity from scratch using the optimization plan above.";
+                level = "Low Exposure Liability";
+                desc = "Your profile is underperforming, leaving extensive inbound potential on the table. Start immediately by rewriting your identity bio, adding modern tags, and establishing portfolio case studies.";
+                scoreLabel.className = "inline-block px-3 py-1 rounded-full text-xs font-black uppercase text-rose-500 bg-rose-500/10 border border-rose-500/20";
             }
 
-            verdict.innerHTML = `<strong class="text-[#00f2fe] uppercase tracking-wide text-sm block mb-2">Level: ${level}</strong> ${desc}`;
-
-            renderChart(avg);
-            
-            setTimeout(() => {
-                window.scrollTo({ top: document.getElementById('results').offsetTop - 50, behavior: 'smooth' });
-            }, 300);
+            scoreLabel.innerText = level;
+            verdictHeadline.innerText = level;
+            verdictText.innerText = desc;
         }
 
-        function renderChart(score) {
-            const ctx = document.getElementById('scoreChart').getContext('2d');
-            if(chartInstance) chartInstance.destroy();
+        // Blank reset display helper
+        function displayDiagnosticResetState() {
+            const container = document.getElementById('dimensionBreakdown');
+            container.innerHTML = `
+                <div class="glass-panel p-8 rounded-3xl text-center py-16 space-y-4">
+                    <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center mx-auto text-slate-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 font-medium font-outfit">Scorecard metrics will compile dynamically when data is entered in the Importer.</p>
+                </div>
+            `;
+            document.getElementById('scoreText').innerText = "0%";
+            document.getElementById('scoreLabel').innerText = "AWAITING DATA";
+            document.getElementById('scoreLabel').className = "inline-block px-3 py-1 rounded-full text-xs font-black uppercase text-slate-500 bg-slate-500/10 border border-slate-500/20";
+            document.getElementById('verdictHeadline').innerText = "Input Narrative Draft";
+            document.getElementById('finalVerdict').innerText = "Provide profile data details in the fields above to automatically run heuristic scanner matrices.";
             
-            // Create gradient
-            const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+            renderScoreChart(0);
+        }
+
+        // Render circular score chart
+        function renderScoreChart(score) {
+            const ctx = document.getElementById('scoreChart').getContext('2d');
+            if (chartInstance) chartInstance.destroy();
+            
+            const gradient = ctx.createLinearGradient(0, 0, 0, 200);
             gradient.addColorStop(0, '#00f2fe');
             gradient.addColorStop(1, '#4facfe');
 
@@ -312,16 +1272,471 @@
                 type: 'doughnut',
                 data: {
                     datasets: [{
-                        data: [score, 100-score],
-                        backgroundColor: [gradient, 'rgba(15, 23, 42, 0.5)'],
+                        data: [score, 100 - score],
+                        backgroundColor: [gradient, 'rgba(255, 255, 255, 0.05)'],
                         borderWidth: 0,
-                        circumference: 180,
-                        rotation: 270,
-                        borderRadius: 10,
+                        circumference: 240,
+                        rotation: 240,
+                        borderRadius: 8,
                     }]
                 },
-                options: { cutout: '85%', plugins: { legend: { display: false } }, animation: { duration: 1500, easing: 'easeOutQuart' } }
+                options: { 
+                    cutout: '84%', 
+                    plugins: { legend: { display: false } }, 
+                    animation: false,
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
             });
+        }
+
+        // --- SECTION 3: HEADLINE & BIO GENERATION (8 OPTIONS) ---
+        function renderHeadlineOptions() {
+            const bioVal = document.getElementById('liveBioInput').value;
+            const skillsVal = document.getElementById('skillsList').value;
+            const headlineVal = document.getElementById('headlineAbout').value.split('\n')[0] || '';
+
+            const options = expertSystem.generateHeadlineOptions(headlineVal, bioVal, skillsVal);
+            const wrapper = document.getElementById('generatedHeadlinesWrapper');
+            
+            if (!bioVal.trim()) {
+                wrapper.innerHTML = `
+                    <div class="glass-panel p-6 rounded-2xl text-center py-12 text-slate-500 text-xs sm:text-sm">
+                        Generated positioning blueprint copy templates will output dynamically here.
+                    </div>
+                `;
+                return;
+            }
+
+            wrapper.innerHTML = '';
+            options.forEach((opt, idx) => {
+                const card = document.createElement('div');
+                card.className = 'glass-panel p-5 rounded-xl border border-slate-800 space-y-4';
+                card.innerHTML = `
+                    <div class="flex justify-between items-center border-b border-slate-800/80 pb-2">
+                        <span class="text-xs font-bold uppercase text-brand-cyan tracking-wider font-outfit">${opt.style}</span>
+                        <button onclick="copyToClipboard(this, ${idx}, 'headline')" class="px-2.5 py-1 text-[11px] bg-brand-cyan/10 border border-brand-cyan/20 rounded font-bold hover:bg-brand-cyan/25 transition">Copy Headline</button>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-brand-dark rounded-lg border border-slate-800/50 text-xs font-semibold text-white leading-relaxed" id="headlineText-${idx}">${opt.headline}</div>
+                        <div class="p-3 bg-brand-dark/40 rounded-lg border border-slate-800/30 text-xs text-slate-400 leading-relaxed font-mono whitespace-pre-line" id="bioText-${idx}">${opt.bio}</div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button onclick="copyToClipboard(this, ${idx}, 'bio')" class="px-2.5 py-1 text-[11px] bg-brand-blue/10 border border-brand-blue/20 text-brand-blue rounded font-bold hover:bg-brand-blue/25 transition">Copy Biography Body</button>
+                    </div>
+                `;
+                wrapper.appendChild(card);
+            });
+        }
+
+        // Clipboard copy helper
+        function copyToClipboard(button, idx, type) {
+            const elementId = type === 'headline' ? `headlineText-${idx}` : `bioText-${idx}`;
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.innerText;
+                button.innerText = "✓ Copied!";
+                setTimeout(() => {
+                    button.innerText = originalText;
+                }, 1500);
+            });
+        }
+
+        // Highlight passive words logic
+        function highlightPassiveWords() {
+            const text = document.getElementById('liveBioInput').value;
+            const resBox = document.getElementById('highlightedBioResult');
+            
+            if (!text || text.trim() === '') {
+                resBox.innerHTML = `Type summary narrative to audit weak structural phrasing.`;
+                return;
+            }
+
+            const passiveVerbs = expertSystem.dictionaries.passiveVerbs;
+            let highlighted = text;
+            let foundCount = 0;
+
+            // Highlight matches
+            passiveVerbs.forEach(verb => {
+                const regex = new RegExp(`\\b${verb}\\b`, 'gi');
+                highlighted = highlighted.replace(regex, match => {
+                    foundCount++;
+                    return `<span class="word-highlight-red text-rose-300 font-bold">${match}</span>`;
+                });
+            });
+
+            if (foundCount > 0) {
+                resBox.innerHTML = `
+                    <div class="font-bold text-xs uppercase text-rose-400 mb-1">Detected ${foundCount} Legacy/Passive Framing elements:</div>
+                    <div class="p-3 bg-brand-dark/50 border border-slate-800 rounded-lg max-h-48 overflow-y-auto leading-relaxed text-slate-300 whitespace-pre-line font-mono text-[11px]">${highlighted}</div>
+                    <p class="text-[11px] text-slate-500 mt-2">Replace highlighted weak terms with high-impact action verbs (e.g. 'architected', 'optimized') to signal executive authority.</p>
+                `;
+            } else {
+                resBox.innerHTML = `
+                    <div class="font-bold text-xs uppercase text-emerald-400 mb-1">Framing Assessment: Perfect!</div>
+                    <p class="text-[11px] text-slate-400">No passive phrases detected. Your bio copy successfully broadcasts outcome-focused executive authority.</p>
+                `;
+            }
+        }
+
+        // --- SECTION 4: POST HOOK WRITING WORKSPACE ---
+        function renderBlueprints() {
+            const container = document.getElementById('blueprintsWrapper');
+            container.innerHTML = '';
+            
+            viralBlueprints.forEach((bp, idx) => {
+                const card = document.createElement('div');
+                card.className = 'p-3 bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 rounded-xl cursor-pointer transition flex items-center justify-between';
+                card.onclick = () => loadBlueprint(idx);
+                card.innerHTML = `
+                    <div class="space-y-0.5 pointer-events-none">
+                        <span class="text-xs font-bold text-slate-200 block">${bp.title}</span>
+                        <span class="text-[11px] text-slate-500 line-clamp-1">${bp.hook.substring(0, 50)}...</span>
+                    </div>
+                    <span class="text-xs text-brand-cyan bg-brand-cyan/5 px-2 py-1 rounded border border-brand-cyan/15 font-bold">Load</span>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function loadBlueprint(idx) {
+            const bp = viralBlueprints[idx];
+            document.getElementById('postDraftInput').value = bp.hook + bp.body + "\n\n" + bp.cta;
+            updateDashboardRealtime();
+            saveSessionData();
+            
+            // Scroll user smoothly to post workspace so they can edit
+            document.getElementById('postDraftInput').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function analyzeDraftPost() {
+            const text = document.getElementById('postDraftInput').value;
+            const feedback = expertSystem.analyzePostHook(text);
+
+            // Update meters
+            document.getElementById('hookMeterVal').innerText = feedback.hookScore + "%";
+            document.getElementById('whiteMeterVal').innerText = feedback.formattingScore + "%";
+            document.getElementById('emojiMeterVal').innerText = feedback.emojiScore + "%";
+            document.getElementById('ctaMeterVal').innerText = feedback.ctaScore + "%";
+
+            // Update details
+            const detailBox = document.getElementById('postFeedbackDetails');
+            
+            if (feedback.suggestions.length > 0) {
+                const list = feedback.suggestions.map(s => `<li class="flex items-start gap-1"><span class="text-amber-400">▹</span><span>${s}</span></li>`).join('');
+                detailBox.innerHTML = `
+                    <p class="font-bold text-[11px] uppercase text-brand-cyan mb-2">${feedback.analysis}</p>
+                    <ul class="space-y-1.5 text-slate-400 font-sans text-[11px]">
+                        ${list}
+                    </ul>
+                `;
+            } else if (text.trim().length > 0) {
+                detailBox.innerHTML = `
+                    <p class="font-bold text-[11px] uppercase text-emerald-400 mb-1">Draft Evaluation: High Quality</p>
+                    <p class="text-[11px] text-slate-400">Excellent balance of short paragraphs, optimal emojis, curiosity hook triggers, and CTA conversion paths. Tailored for LinkedIn organic distribution.</p>
+                `;
+            } else {
+                detailBox.innerText = "Draft post to activate algorithm conversion analysis.";
+            }
+        }
+
+        function improvePostFormat() {
+            const text = document.getElementById('postDraftInput').value;
+            if (!text || text.trim() === '') {
+                alert("Provide a post draft in the workspace field first.");
+                return;
+            }
+            const improved = expertSystem.improvePost(text);
+            document.getElementById('postDraftInput').value = improved;
+            updateDashboardRealtime();
+            saveSessionData();
+        }
+
+        // --- SECTION 5: CAREER GAP ANALYSIS ACTIONS (Vary dynamically based on multiple selection) ---
+        function runCareerGapCheck() {
+            const skillsVal = document.getElementById('skillsList').value;
+            const containerGauges = document.getElementById('selectedCareersGaugesContainer');
+            
+            containerGauges.innerHTML = '';
+            
+            // Loop through each selected career and render SVG circular progress gauges in a side-by-side flex/grid
+            selectedCareerKeys.forEach(roleKey => {
+                const results = expertSystem.runGapAnalysis(skillsVal, roleKey);
+                
+                const card = document.createElement('div');
+                card.className = 'glass-panel p-5 rounded-2xl flex flex-col justify-center items-center text-center';
+                
+                let matchLabelClass = "text-rose-500 bg-rose-500/10 border-rose-500/20";
+                let matchLabelText = "Mismatch";
+                if (results.score >= 80) {
+                    matchLabelClass = "text-emerald-400 bg-emerald-400/10 border-emerald-400/20";
+                    matchLabelText = "Excellent Match";
+                } else if (results.score >= 50) {
+                    matchLabelClass = "text-brand-blue bg-brand-blue/10 border-brand-blue/20";
+                    matchLabelText = "Moderate Match";
+                }
+
+                // Gauge dashoffset calculation
+                const radius = 35;
+                const circumference = 2 * Math.PI * radius;
+                const offset = circumference - (Math.max(results.score, 0) / 100) * circumference;
+
+                card.innerHTML = `
+                    <h4 class="text-xs font-bold text-slate-300 line-clamp-1 mb-2 font-outfit h-5">${results.roleTitle}</h4>
+                    <div class="relative w-28 h-28 flex items-center justify-center mb-2">
+                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="35" stroke="rgba(255,255,255,0.05)" stroke-width="7" fill="transparent"/>
+                            <circle cx="50" cy="50" r="35" stroke="url(#cyanBlueGrad)" stroke-width="7" fill="transparent" stroke-dasharray="${circumference}" stroke-dashoffset="${offset}" class="progress-ring-circle"/>
+                        </svg>
+                        <span class="absolute text-2xl font-black font-outfit text-white">${results.score}%</span>
+                    </div>
+                    <span class="text-[10px] font-black uppercase px-2 py-0.5 rounded border ${matchLabelClass}">${matchLabelText}</span>
+                `;
+                containerGauges.appendChild(card);
+            });
+
+            // 2. AGGREGATE KEYWORDS ACROSS ALL SELECTED TARGET ROLES
+            let aggregateMatch = new Set();
+            let aggregateMissingMap = new Map(); // maps skill name -> list of roles requesting it
+            let aggregateLegacy = new Set();
+
+            selectedCareerKeys.forEach(roleKey => {
+                const results = expertSystem.runGapAnalysis(skillsVal, roleKey);
+                
+                results.matching.forEach(s => aggregateMatch.add(s));
+                results.legacyToPrune.forEach(s => aggregateLegacy.add(s));
+                
+                results.missing.forEach(s => {
+                    if (!aggregateMissingMap.has(s)) {
+                        aggregateMissingMap.set(s, []);
+                    }
+                    aggregateMissingMap.get(s).push(results.roleTitle);
+                });
+            });
+
+            // Match Skills tags
+            const matchWrapper = document.getElementById('matchSkillsWrapper');
+            document.getElementById('matchSkillsCount').innerText = aggregateMatch.size;
+            if (aggregateMatch.size > 0) {
+                matchWrapper.innerHTML = Array.from(aggregateMatch).map(s => `
+                    <span class="pill-tag px-2.5 py-1 text-xs text-slate-300 border border-emerald-500/20 rounded-md font-semibold select-none flex items-center gap-1">
+                        <span class="text-emerald-400 font-bold">✓</span> ${s}
+                    </span>
+                `).join('');
+            } else {
+                matchWrapper.innerHTML = `<span class="text-xs text-slate-500">No alignments found. Expand your profile skills.</span>`;
+            }
+
+            // Missing skills tags (interactive + role-tags helper!)
+            const missingWrapper = document.getElementById('missingSkillsWrapper');
+            document.getElementById('missingSkillsCount').innerText = aggregateMissingMap.size;
+            if (aggregateMissingMap.size > 0) {
+                missingWrapper.innerHTML = Array.from(aggregateMissingMap.keys()).map(s => {
+                    const rolesText = aggregateMissingMap.get(s).join(', ');
+                    return `
+                        <button onclick="addSkillFromGap('${s.replace(/'/g, "\\'")}')" title="Required by: ${rolesText}" class="pill-tag px-2.5 py-1 text-xs text-slate-300 border border-brand-cyan/20 hover:border-brand-cyan rounded-md font-semibold flex items-center gap-1 transition">
+                            <span class="text-brand-cyan font-bold">+</span> <span>${s}</span>
+                            <span class="text-[10px] text-slate-500 font-normal truncate max-w-[80px]">(${aggregateMissingMap.get(s)[0]})</span>
+                        </button>
+                    `;
+                }).join('');
+            } else {
+                missingWrapper.innerHTML = `<span class="text-xs text-emerald-400 font-medium font-outfit">Perfect target alignment achieved across all selected tracks!</span>`;
+            }
+
+            // Legacy Fluff to prune (interactive)
+            const legacyWrapper = document.getElementById('legacySkillsWrapper');
+            document.getElementById('legacySkillsCount').innerText = aggregateLegacy.size;
+            if (aggregateLegacy.size > 0) {
+                legacyWrapper.innerHTML = Array.from(aggregateLegacy).map(s => `
+                    <button onclick="pruneSkillFromGap('${s.replace(/'/g, "\\'")}')" class="pill-tag px-2.5 py-1 text-xs text-slate-300 border border-rose-500/20 hover:border-rose-500 rounded-md font-semibold flex items-center gap-1 transition">
+                        <span class="text-rose-500 font-bold">×</span> ${s}
+                    </button>
+                `).join('');
+            } else {
+                legacyWrapper.innerHTML = `<span class="text-xs text-slate-500">Your profile contains no dilution keywords.</span>`;
+            }
+        }
+
+        // Interactive tag add helper
+        function addSkillFromGap(skillName) {
+            const listInput = document.getElementById('skillsList');
+            let skillsArr = listInput.value ? listInput.value.split(',').map(s => s.trim()) : [];
+            
+            // Check if already in list
+            if (!skillsArr.some(s => s.toLowerCase() === skillName.toLowerCase())) {
+                skillsArr.push(skillName);
+                listInput.value = skillsArr.join(', ');
+                updateDashboardRealtime();
+                saveSessionData();
+            }
+        }
+
+        // Interactive tag prune helper
+        function pruneSkillFromGap(skillName) {
+            const listInput = document.getElementById('skillsList');
+            let skillsArr = listInput.value ? listInput.value.split(',').map(s => s.trim()) : [];
+            
+            // Filter out the legacy skill
+            skillsArr = skillsArr.filter(s => s.toLowerCase() !== skillName.toLowerCase());
+            listInput.value = skillsArr.join(', ');
+            updateDashboardRealtime();
+            saveSessionData();
+        }
+
+        // --- SECTION 6: GAMIFIED ROADMAP ACTION SYSTEM (Dynamic Role variations) ---
+        function generateChecklist(dimensions) {
+            checklistTasks = [];
+            completedTaskIndexes.clear();
+
+            // 1. Get generic diagnostics tasks
+            dimensions.forEach((dim) => {
+                if (dim.data.edits && dim.data.edits.length > 0) {
+                    dim.data.edits.forEach((edit) => {
+                        checklistTasks.push({
+                            dimension: dim.name,
+                            text: edit,
+                            weight: Math.ceil((100 - dim.data.score) / dim.data.edits.length / 5.5) || 2
+                        });
+                    });
+                }
+            });
+
+            // 2. ADD MORE ROADMAP DYNAMIC VARIATIONS BASED ON SELECTED CAREERS
+            selectedCareerKeys.forEach(roleKey => {
+                const roleItems = expertSystem.getRoleSpecificChecklist(roleKey);
+                roleItems.forEach(item => {
+                    // Check duplicate text to prevent roadmap cluttering
+                    if (!checklistTasks.some(t => t.text === item.text)) {
+                        checklistTasks.push(item);
+                    }
+                });
+            });
+
+            // Default fallback checklist if none generated
+            if (checklistTasks.length === 0) {
+                checklistTasks = [
+                    { dimension: "Identity Narrative", text: "Expand profile bio summary in raw importer.", weight: 15 },
+                    { dimension: "Skill Matrix", text: "Add 10 high-value futuristic skills in coordinates list.", weight: 12 },
+                    { dimension: "Proof of Work", text: "Verify portfolio listings contain direct HTTP links.", weight: 10 },
+                    { dimension: "Social Proof", text: "Reach out to 5 senior contacts for recommendations.", weight: 8 }
+                ];
+            }
+
+            renderChecklist();
+        }
+
+        function renderChecklist() {
+            const wrapper = document.getElementById('activeChecklistWrapper');
+            
+            if (checklistTasks.length === 0) {
+                wrapper.innerHTML = `
+                    <div class="glass-panel p-6 rounded-2xl text-center py-12 text-slate-500 text-xs sm:text-sm">
+                        Audit items will populate dynamically once data coordinates are entered.
+                    </div>
+                `;
+                return;
+            }
+
+            wrapper.innerHTML = '';
+            checklistTasks.forEach((task, idx) => {
+                const row = document.createElement('div');
+                const isChecked = completedTaskIndexes.has(idx);
+                
+                row.className = `glass-panel p-4 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ${isChecked ? 'opacity-60 bg-brand-cyan/5 border-emerald-500/20' : ''}`;
+                row.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <div onclick="toggleTask(${idx})" class="checkbox-custom shrink-0 ${isChecked ? 'checked' : ''}"></div>
+                        <div class="space-y-0.5">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">${task.dimension}</span>
+                            <p class="text-xs text-slate-300 leading-relaxed ${isChecked ? 'line-through text-slate-500' : ''}">${task.text}</p>
+                        </div>
+                    </div>
+                    <span class="text-[11px] font-bold text-brand-cyan bg-brand-cyan/5 px-2 py-0.5 rounded shrink-0">+${task.weight}% Simulated Score</span>
+                `;
+                wrapper.appendChild(row);
+            });
+
+            updateSimulatedScores();
+        }
+
+        function toggleTask(idx) {
+            if (completedTaskIndexes.has(idx)) {
+                completedTaskIndexes.delete(idx);
+            } else {
+                completedTaskIndexes.add(idx);
+            }
+            renderChecklist();
+            saveSessionData();
+        }
+
+        function updateSimulatedScores() {
+            let simScore = diagnosticScore;
+            
+            // Sum completed weights
+            completedTaskIndexes.forEach(idx => {
+                const task = checklistTasks[idx];
+                if (task) simScore += task.weight;
+            });
+            
+            simScore = Math.min(simScore, 100);
+
+            // Update DOM widgets
+            document.getElementById('quickSimScore').innerText = simScore + "%";
+            document.getElementById('roadmapSimScore').innerText = simScore + "%";
+        }
+
+        // --- SECTION 7: LOCAL STORAGE PERSISTENCE ---
+        function saveSessionData() {
+            const session = {
+                ha: document.getElementById('headlineAbout').value,
+                skills: document.getElementById('skillsList').value,
+                ends: document.getElementById('endorsements').value,
+                port: document.getElementById('portfolio').value,
+                arts: document.getElementById('articles').value,
+                draft: document.getElementById('postDraftInput').value,
+                bioDraft: document.getElementById('liveBioInput').value,
+                careerTracks: selectedCareerKeys,
+                completedTasks: Array.from(completedTaskIndexes),
+                diagnosticScore,
+                checklistTasks
+            };
+            localStorage.setItem('authority_suite_session_v4', JSON.stringify(session));
+        }
+
+        function loadSessionData() {
+            const dataStr = localStorage.getItem('authority_suite_session_v4');
+            if (!dataStr) return;
+
+            try {
+                const session = JSON.parse(dataStr);
+                
+                document.getElementById('headlineAbout').value = session.ha || '';
+                document.getElementById('skillsList').value = session.skills || '';
+                document.getElementById('endorsements').value = session.ends || '';
+                document.getElementById('portfolio').value = session.port || '';
+                document.getElementById('articles').value = session.arts || '';
+                document.getElementById('postDraftInput').value = session.draft || '';
+                document.getElementById('liveBioInput').value = session.bioDraft || '';
+                
+                selectedCareerKeys = session.careerTracks || ['ai_ml_engineer'];
+                
+                diagnosticScore = session.diagnosticScore || 0;
+                checklistTasks = session.checklistTasks || [];
+                completedTaskIndexes = new Set(session.completedTasks || []);
+
+                // Re-render multi select checklist targets checkmarks
+                renderCareersDropdown();
+
+                if (diagnosticScore > 0) {
+                    updateDashboardRealtime();
+                    // Restore custom checkmarks precisely
+                    completedTaskIndexes = new Set(session.completedTasks || []);
+                    renderChecklist();
+                }
+            } catch (err) {
+                console.error("Session restore failure: ", err);
+            }
         }
     </script>
 </body>

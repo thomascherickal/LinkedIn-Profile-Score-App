@@ -1,0 +1,823 @@
+# CAREERS DATABASE: LinkedIn Profile Score Target Roles Matrix
+# =============================================================
+# Format:
+# # ROLE_START: [role_key]
+# ## TITLE: [Role Title]
+# ## MARKET_DESCRIPTION: [Market summary and recruiter context]
+# ## REQUIRED_SKILLS: [Comma-separated skills]
+# ## LEGACY_SKILLS: [Comma-separated prunes]
+# ## ROADMAP_TASKS:
+# - Task: [Action Text] | Weight: [Weight points]
+# # ROLE_END
+# =============================================================
+
+# ROLE_START: ai_ml_engineer
+## TITLE: AI/ML Engineer & Architect
+## MARKET_DESCRIPTION: AI/ML positions demand cutting-edge engineering depth. Generic coding skills are baseline; high-impact roles look for concrete model orchestration, fine-tuning, and semantic database capabilities.
+## REQUIRED_SKILLS: LLM, Generative AI, PyTorch, TensorFlow, RAG, Vector Database, Fine-Tuning, Mojo, Python, Machine Learning, Transformer, NLP, Model Deployment, Agentic AI, LangChain
+## LEGACY_SKILLS: Excel, Word, HTML, CSS, Data Entry, WordPress
+## ROADMAP_TASKS:
+- Task: Pin your high-leverage technical skills (LLM, Generative AI, PyTorch) to the very top of your profile skill matrix to optimize recruiter boolean matching. | Weight: 12
+- Task: Prune legacy styling tags (Excel, Word) that dilute your senior technical authority. | Weight: 10
+- Task: Benchmark LLM fine-tuning latency patterns and write an engineering article about model optimization. | Weight: 15
+# ROLE_END
+
+# ROLE_START: full_stack_dev
+## TITLE: Senior Full-Stack Developer
+## MARKET_DESCRIPTION: Senior product engineering roles require architecture maturity, cloud deployment systems, and modern modular frameworks over simple markup styling.
+## REQUIRED_SKILLS: React, Next.js, Node.js, TypeScript, GraphQL, PostgreSQL, Docker, AWS, System Architecture, CI/CD, Serverless, Tailwind, Redis, Microservices, Kubernetes
+## LEGACY_SKILLS: jQuery, Dreamweaver, Bootstrap, HTML, CSS, Frontpage
+## ROADMAP_TASKS:
+- Task: Showcase core engineering stacks (TypeScript, Next.js, AWS) in your featured project proof highlights. | Weight: 12
+- Task: Remove legacy web design keywords (jQuery, Frontpage) to emphasize senior modular architecture. | Weight: 10
+- Task: Draft a case study explaining high-concurrency microservice state trees and backend deployment speeds. | Weight: 14
+# ROLE_END
+
+# ROLE_START: product_leader
+## TITLE: Product Leader (PM/Director)
+## MARKET_DESCRIPTION: Product leaders must shift narratives from 'managing tasks' to 'owning business outcomes' and 'defining strategic vision'. High-impact metrics override administrative skills.
+## REQUIRED_SKILLS: Product Strategy, Roadmap, UX Research, Agile, Metrics & Analytics, A/B Testing, Growth Hacking, SQL, Stakeholder Management, Customer Discovery, Market Analysis, Scrum, SaaS, Product-Led Growth
+## LEGACY_SKILLS: Excel, PowerPoint, Meeting Scheduling, Note Taking, Data Entry
+## ROADMAP_TASKS:
+- Task: Reframe about bio from 'managing task flows' to 'owning capital margins' and B2B SaaS growth trajectories. | Weight: 15
+- Task: Prune simple administrative and office logging tags (Excel, PowerPoint) that dilute leadership authority. | Weight: 8
+- Task: Add concrete case studies highlighting roadmap conversion paths and customer discovery bottlenecks solved. | Weight: 12
+# ROLE_END
+
+# ROLE_START: growth_marketer
+## TITLE: Growth Marketer & Copywriter
+## MARKET_DESCRIPTION: Growth marketing demands data-driven analytical prowess and narrative architecture, moving away from simple passive community posting.
+## REQUIRED_SKILLS: SEO, SEM, Conversion Rate Optimization, CRO, A/B Testing, Copywriting, Content Strategy, Google Analytics, Lead Generation, Email Marketing, Paid Acquisition, SQL, Brand Positioning, Influencer Marketing
+## LEGACY_SKILLS: Social Media Posting, Microsoft Word, Canva, Typing, Event Planning
+## ROADMAP_TASKS:
+- Task: Pin core analytical keywords (Conversion Rate Optimization, CRO, A/B Testing) in your top-pinned skill section. | Weight: 12
+- Task: Remove general blogging and office template skills (Canva, Word) to preserve analytical status. | Weight: 8
+- Task: Model B2B conversion optimization matrices and write a organic traffic acquisition playbook. | Weight: 14
+# ROLE_END
+
+# ROLE_START: strategy_consultant
+## TITLE: Enterprise Strategy Consultant
+## MARKET_DESCRIPTION: High-ticket strategic consulting relies on heavy business transformation authority, foresight frameworks, and specialized corporate value blueprints.
+## REQUIRED_SKILLS: Strategic Foresight, Digital Transformation, Enterprise Architecture, B2B Consulting, M&A, Financial Modeling, Change Management, Executive Coaching, Operations Strategy, Risk Management, Market Entry, Corporate Strategy
+## LEGACY_SKILLS: Excel, PowerPoint, Typing, Filing, Data Entry
+## ROADMAP_TASKS:
+- Task: Reframe profile copy around B2B digital transformation strategy and corporate M&A advisory value. | Weight: 15
+- Task: Prune baseline support listings (Filing, Data Entry) that undermine executive consultant status. | Weight: 10
+- Task: Document a strategic foresight model or corporate merger migration roadmap in your featured portfolio. | Weight: 12
+# ROLE_END
+
+# ROLE_START: data_scientist
+## TITLE: Data Scientist
+## MARKET_DESCRIPTION: Data Scientists leverage quantitative algorithms and hypothesis testing. Diluting profiles with basic spreadsheets masks your core predictive modeling capabilities.
+## REQUIRED_SKILLS: Python, SQL, Pandas, NumPy, Scikit-Learn, Data Modeling, Statistical Analysis, Machine Learning, Data Visualization, A/B Testing, Jupyter, R, Tableau, Feature Engineering
+## LEGACY_SKILLS: Excel, PowerPoint, Data Entry, Word, Filing
+## ROADMAP_TASKS:
+- Task: Focus on advanced algorithmic metrics (Scikit-Learn, Feature Engineering) in your credentials and tags. | Weight: 14
+- Task: Remove basic spreadsheet data entry markers (Excel, Word) to raise predictive positioning. | Weight: 10
+# ROLE_END
+
+# ROLE_START: devops_engineer
+## TITLE: DevOps & Infrastructure Engineer
+## MARKET_DESCRIPTION: DevOps thrives on automation, reliability engineering (SRE), and codifying environments. Highlight systemic scale rather than legacy design and markup skills.
+## REQUIRED_SKILLS: Docker, Kubernetes, CI/CD, Jenkins, GitHub Actions, Terraform, AWS, Linux, Bash, Ansible, Prometheus, Grafana, CloudFormation, Infrastructure as Code, SRE
+## LEGACY_SKILLS: HTML, CSS, Manual Testing, FTP, Dreamweaver
+## ROADMAP_TASKS:
+- Task: Highlight scalable automation systems (Terraform, Kubernetes, SRE) in your skill tags. | Weight: 12
+- Task: Remove legacy web template builders and basic markup classes (FTP, Dreamweaver) to preserve backend trust. | Weight: 10
+- Task: Map out a secure, high-availability multi-cloud release pipeline case study. | Weight: 15
+# ROLE_END
+
+# ROLE_START: cybersecurity_analyst
+## TITLE: Cybersecurity Analyst
+## MARKET_DESCRIPTION: Security experts are defensive architects. Recruiter searches focus heavily on threat mitigation frameworks, access modeling (IAM), and formal certification keywords.
+## REQUIRED_SKILLS: SIEM, Penetration Testing, Incident Response, Wireshark, Network Security, Vulnerability Assessment, OWASP, Firewalls, IAM, SOC, Threat Intelligence, Cryptography, CISSP, CEH
+## LEGACY_SKILLS: Excel, Customer Support, Data Entry, Word
+## ROADMAP_TASKS:
+- Task: Focus on enterprise-grade threat mitigation protocols (SIEM, OWASP, CISSP) in your pinned matrices. | Weight: 15
+- Task: Prune baseline IT support listings (Customer Support, Excel) that decrease technical posture. | Weight: 8
+# ROLE_END
+
+# ROLE_START: ux_ui_designer
+## TITLE: UX/UI Product Designer
+## MARKET_DESCRIPTION: Designers focus on strategic user journeys and visual design systems. Avoid listing front-end coding unless you target technical hybrid engineering tracks.
+## REQUIRED_SKILLS: Figma, User Research, Wireframing, Prototyping, Design Systems, Information Architecture, User Journeys, Visual Design, Adobe XD, Interaction Design, Usability Testing, UI Components, Heuristic Evaluation
+## LEGACY_SKILLS: HTML, CSS, Frontpage, Data Entry, Photoshop Crop
+## ROADMAP_TASKS:
+- Task: Showcase core design strategy elements (Figma Design Systems, Information Architecture) in your portfolio proofs. | Weight: 12
+- Task: Prune legacy layout tools and baseline cropping assets (Frontpage, Photoshop Crop) to lift premium product focus. | Weight: 8
+# ROLE_END
+
+# ROLE_START: cloud_architect
+## TITLE: Cloud Enterprise Architect
+## MARKET_DESCRIPTION: Enterprise Cloud Architects design highly-available global topologies. Shift the focus from basic file management or website templates to scalable cloud governance.
+## REQUIRED_SKILLS: AWS, Azure, GCP, Cloud Architecture, Microservices, Serverless, IAM, VPC, Multi-Cloud, Cloud Migration, Enterprise Security, Disaster Recovery, Cost Optimization
+## LEGACY_SKILLS: Excel, HTML, WordPress, FTP, cPanel
+## ROADMAP_TASKS:
+- Task: Add multi-cloud and system topology credentials (AWS, IAM, VPC) directly to your featured credentials. | Weight: 14
+- Task: Prune basic website management panels (cPanel, FTP) to signal enterprise governance expertise. | Weight: 10
+# ROLE_END
+
+# ROLE_START: blockchain_developer
+## TITLE: Blockchain & Web3 Developer
+## MARKET_DESCRIPTION: Web3 engineering values decentralization protocols, smart contract execution security, and cryptosystem architecture above generic back-end configurations.
+## REQUIRED_SKILLS: Solidity, Ethereum, Smart Contracts, Cryptography, Rust, Web3.js, Ethers.js, Hardhat, DeFi, NFTs, Consensus Algorithms, Hyperledger, IPFS, dApps
+## LEGACY_SKILLS: WordPress, HTML, CSS, PHP, SQL Server
+## ROADMAP_TASKS:
+- Task: Highlight cryptosystem depth and smart contract engineering (Solidity, Smart Contracts, Rust). | Weight: 15
+- Task: Prune generic website content management classes (WordPress, PHP) to highlight cryptography. | Weight: 10
+# ROLE_END
+
+# ROLE_START: qa_automation
+## TITLE: QA Automation Engineer
+## MARKET_DESCRIPTION: Modern QA relies on code-driven programmatic regressions and browser environments. Emphasize automated suite orchestration over manual point-and-click operations.
+## REQUIRED_SKILLS: Selenium, Cypress, Playwright, Test Automation, JavaScript, Python, JUnit, CI/CD, API Testing, Postman, Regression Testing, Bug Tracking, Load Testing
+## LEGACY_SKILLS: Manual Testing, Excel, Word, Typing
+## ROADMAP_TASKS:
+- Task: Put script-driven test orchestration frameworks (Cypress, Playwright, CI/CD) into your key tags. | Weight: 12
+- Task: Prune manual testing and baseline clerical listings (Manual Testing, Typing) to preserve automation trust. | Weight: 10
+# ROLE_END
+
+# ROLE_START: technical_writer
+## TITLE: Technical Documentarian / Writer
+## MARKET_DESCRIPTION: Technical Communicators act as bridges between codebases and end-users. Showing API blueprinting structure and automated static tools beats general blogging.
+## REQUIRED_SKILLS: Technical Writing, API Documentation, Markdown, Git, Docusaurus, Swagger, OpenAPI, Technical Editing, User Guides, Release Notes, SaaS, Developer Relations, Confluence
+## LEGACY_SKILLS: Blogging, Excel, PowerPoint, Typing, Filing
+## ROADMAP_TASKS:
+- Task: Feature technical documentation standards (API Documentation, OpenAPI, Swagger) in your top achievements. | Weight: 12
+- Task: Prune clerical logging and baseline blogging tags (Filing, Typing) to lift technical positioning. | Weight: 8
+# ROLE_END
+
+# ROLE_START: scrum_master
+## TITLE: Certified Scrum Master
+## MARKET_DESCRIPTION: Scrum Masters act as facilitators of developer throughput. Recruiter queries filter out secretaries, focusing entirely on Agile coaching and backlog leadership.
+## REQUIRED_SKILLS: Scrum, Agile, Jira, Kanban, Facilitation, Sprint Planning, Retrospectives, Product Backlog, Agile Coaching, Conflict Resolution, Scaled Agile, SAFe
+## LEGACY_SKILLS: Note Taking, Meeting Scheduling, Excel, Data Entry, Filing
+## ROADMAP_TASKS:
+- Task: Add professional facilitator metrics (SAFe Agile, Sprint Planning, Agile Coaching) in your summary headings. | Weight: 14
+- Task: Remove administrative scheduler markers (Meeting Scheduling, Note Taking) that dilute agile leadership status. | Weight: 10
+# ROLE_END
+
+# ROLE_START: seo_specialist
+## TITLE: Technical SEO Specialist
+## MARKET_DESCRIPTION: Search optimization relies heavily on engineering crawlers, semantics, and index tuning. Highlight crawling audits over general visual posting templates.
+## REQUIRED_SKILLS: SEO, Google Search Console, Google Analytics, Keyword Research, Ahrefs, SEMrush, On-Page SEO, Technical SEO, Link Building, Schema Markup, Content Strategy, Local SEO
+## LEGACY_SKILLS: Social Media Posting, Microsoft Word, Canva, Data Entry
+## ROADMAP_TASKS:
+- Task: Highlight technical crawling and index diagnostics (Technical SEO, Schema Markup, Ahrefs). | Weight: 12
+- Task: Prune basic template editing and standard post markers (Canva, Word) to raise optimization status. | Weight: 8
+# ROLE_END
+
+# ROLE_START: sales_engineer
+## TITLE: Solutions / Sales Engineer
+## MARKET_DESCRIPTION: Sales Engineers translate technology concepts into enterprise validation cycles. Recruiters require robust architecture blueprints and consultative selling depth.
+## REQUIRED_SKILLS: Sales Engineering, Technical Sales, B2B SaaS, Product Demos, RFP Response, Solutions Architecture, Customer Discovery, Enterprise Sales, Consultative Selling, CRM, Technical Presentations
+## LEGACY_SKILLS: Cold Calling, Excel, Data Entry, Customer Support
+## ROADMAP_TASKS:
+- Task: Reframe experience descriptions from simple cold calls to enterprise architecture validation (B2B SaaS, Solutions Architecture). | Weight: 14
+- Task: Prune baseline telemarketing and helpdesk tags (Cold Calling, Customer Support) to raise engineering trust. | Weight: 10
+# ROLE_END
+
+# ROLE_START: solutions_architect
+## TITLE: Solutions Architect
+## MARKET_DESCRIPTION: Solutions Architects align organizational capabilities to systems design. Highlight modern microservices, integrations, and corporate roadmaps over server management basics.
+## REQUIRED_SKILLS: Solutions Architecture, System Design, Enterprise Integration, B2B Architecture, SaaS Architecture, API Design, Cloud Infrastructure, Microservices, UML, Technical Strategy, Pre-Sales
+## LEGACY_SKILLS: Excel, cPanel, FTP, Manual Data Entry
+## ROADMAP_TASKS:
+- Task: Reframe about bio around enterprise system alignments and B2B integration strategies (Solutions Architecture). | Weight: 15
+- Task: Prune generic administration tools (cPanel, FTP) that signal legacy web management. | Weight: 10
+# ROLE_END
+
+# ROLE_START: database_admin
+## TITLE: Database Administrator (DBA)
+## MARKET_DESCRIPTION: DBAs ensure database uptime, high-availability clusters, and recovery plans. Highlight indexing optimization rather than basic web spreadsheets.
+## REQUIRED_SKILLS: Database Administration, SQL Server, Oracle, PostgreSQL, MySQL, Performance Tuning, Backup & Recovery, NoSQL, MongoDB, Index Optimization, Database Clustering, High Availability
+## LEGACY_SKILLS: Excel, Microsoft Word, HTML, CSS, Dreamweaver
+## ROADMAP_TASKS:
+- Task: Feature high-availability indexing and backup configurations (Index Optimization, Database Clustering). | Weight: 14
+- Task: Prune basic word processing and frontend design tags (Word, HTML, CSS) to raise DBA posture. | Weight: 10
+# ROLE_END
+
+# ROLE_START: mobile_dev
+## TITLE: Mobile App Developer (iOS/Android)
+## MARKET_DESCRIPTION: Mobile developers engineer high-performance native user interfaces. Focus heavily on native device patterns, compilation tools, and app store lifecycles.
+## REQUIRED_SKILLS: Swift, Kotlin, Objective-C, Java, iOS Development, Android Development, React Native, Flutter, Mobile UI, App Store Publishing, CoreData, Jetpack Compose, Xcode
+## LEGACY_SKILLS: HTML, CSS, WordPress, PHP, Dreamweaver
+## ROADMAP_TASKS:
+- Task: Highlight native device engineering and app store publishing metrics (Swift, Kotlin, Flutter). | Weight: 12
+- Task: Remove generic website templates and simple scripts (WordPress, PHP) to prioritize native mobile expertise. | Weight: 10
+# ROLE_END
+
+# ROLE_START: cto
+## TITLE: Chief Technology Officer (CTO)
+## MARKET_DESCRIPTION: Executive tech leadership is focused on operational margins, scaling tech strategy, and scaling talent. Highlight high-level technology roadmaps rather than line-by-line coding.
+## REQUIRED_SKILLS: CTO, Technology Strategy, Engineering Leadership, Technical Architecture, R&D, Product Scaling, Team Building, Budgeting, Technical Vision, Mergers & Acquisitions, Executive Communication, Vendor Management
+## LEGACY_SKILLS: Writing Code, Manual Testing, Jira Ticket Creation, Note Taking, Excel
+## ROADMAP_TASKS:
+- Task: Focus your narrative summary on technology budget strategy, operational margins, and R&D pipelines. | Weight: 15
+- Task: Remove low-level code writing and task scheduling details (Jira Tickets, Note Taking) to preserve executive status. | Weight: 10
+- Task: Draft a corporate case study highlighting engineering organizational scaling and system risk reduction. | Weight: 12
+# ROLE_END
+
+# ROLE_START: ciso
+## TITLE: Chief Information Security Officer (CISO)
+## MARKET_DESCRIPTION: CISO roles require risk management and compliance strategy. Focus heavily on regulatory policies, compliance audits, and security strategy.
+## REQUIRED_SKILLS: CISO, Information Security Strategy, Risk Management, Compliance, ISO 27001, SOC 2, GDPR, Security Auditing, Incident Command, Security Governance, Executive Communication, Enterprise Risk
+## LEGACY_SKILLS: Manual Scanning, Firewall Config, Customer Support, Data Entry
+## ROADMAP_TASKS:
+- Task: Focus narrative headlines on strategic governance risk frameworks and ISO 27001 compliance (CISO). | Weight: 15
+- Task: Remove baseline security scans and desk help options (Firewall Config, Customer Support) that lower leadership posture. | Weight: 8
+# ROLE_END
+
+# ROLE_START: digital_product_designer
+## TITLE: Digital Product Designer
+## MARKET_DESCRIPTION: Product design demands rigorous data integration, validation strategies, and design patterns. Move past flat graphic assets to interactive user workflows.
+## REQUIRED_SKILLS: Product Design, UI/UX, Figma, Design Strategy, Interaction Design, Design Systems, Rapid Prototyping, User Research, Customer Journeys, SaaS Design, Mobile App Design
+## LEGACY_SKILLS: Graphic Design, Photoshop Crop, Illustrator Logos, HTML, CSS
+## ROADMAP_TASKS:
+- Task: Feature rapid prototyping, design systems, and user discovery strategies in your top tags. | Weight: 12
+- Task: Prune basic print design and flat visual crop tags (Photoshop Crop, Logos) to highlight product UX. | Weight: 8
+# ROLE_END
+
+# ROLE_START: data_engineer
+## TITLE: Data Pipeline & Infrastructure Engineer
+## MARKET_DESCRIPTION: Data Engineers build scalable data pipelines. Emphasize data orchestration, streaming protocols (Kafka), and enterprise data lake architectures.
+## REQUIRED_SKILLS: Data Engineering, ETL Pipelines, Apache Spark, Apache Airflow, Kafka, Hadoop, SQL, Data Warehousing, Snowflake, Redshift, Python, Scala, Big Data, Data Modeling
+## LEGACY_SKILLS: Excel, Access Databases, PowerPoint, Data Entry, Word
+## ROADMAP_TASKS:
+- Task: Pin high-throughput streaming and pipeline orchestration skills (Apache Spark, Airflow, Kafka). | Weight: 14
+- Task: Remove basic spreadsheets and legacy database tags (Excel, Access) to protect data scaling posture. | Weight: 10
+# ROLE_END
+
+# ROLE_START: customer_success_manager
+## TITLE: Customer Success Manager (B2B)
+## MARKET_DESCRIPTION: Customer Success focuses on post-sale account optimization and expansion metrics. Recruiters filter out administrative assistants, prioritizing churn protection.
+## REQUIRED_SKILLS: Customer Success, B2B SaaS, Churn Reduction, Account Management, Onboarding, CRM, Salesforce, Customer Retention, Upselling, KPI Tracking, Customer Advocacy, NPS
+## LEGACY_SKILLS: Answering Phones, Typing, Data Entry, Filing, Microsoft Word
+## ROADMAP_TASKS:
+- Task: Reframe about bio around B2B SaaS churn protection, account expansions, and customer NPS metrics. | Weight: 14
+- Task: Prune clerical support markers (Typing, Filing, Word) to raise B2B account strategist authority. | Weight: 8
+# ROLE_END
+
+# ROLE_START: hr_talent_acquisition
+## TITLE: HR & Talent Acquisition Lead
+## MARKET_DESCRIPTION: Recruitment leads orchestrate technical sourcing strategy and talent optimization. Highlight sourcing pipeline architectures over office scheduling tasks.
+## REQUIRED_SKILLS: Talent Acquisition, Technical Recruiting, Sourcing, Applicant Tracking Systems, ATS, Candidate Experience, Employer Branding, HR Strategy, Onboarding, Behavioral Interviewing, Compensation & Benefits
+## LEGACY_SKILLS: Filing, Answering Phones, Scheduling Meetings, Data Entry, Word
+## ROADMAP_TASKS:
+- Task: Highlight technical sourcing strategy and candidate onboarding optimizations in your summary. | Weight: 12
+- Task: Remove clerical scheduling and filing details (Scheduling Meetings, Filing) to raise recruitment strategist status. | Weight: 8
+# ROLE_END
+
+# ROLE_START: business_analyst
+## TITLE: Business Systems Analyst
+## MARKET_DESCRIPTION: Business Analysts map technical possibilities to process bottlenecks. Emphasize metrics dashboarding and user stories over basic text templates.
+## REQUIRED_SKILLS: Business Analysis, Requirements Gathering, Jira, SQL, Tableau, Power BI, User Stories, Process Mapping, UML, Agile, Gap Analysis, Stakeholder Management, Data Modeling
+## LEGACY_SKILLS: Data Entry, Filing, Note Taking, Excel Macros, Word
+## ROADMAP_TASKS:
+- Task: Feature process diagramming and metrics analysis capabilities (Jira, Tableau, Process Mapping). | Weight: 12
+- Task: Prune administrative logging and baseline data filing tags (Data Entry, Note Taking) to preserve analytical authority. | Weight: 10
+# ROLE_END
+
+# ROLE_START: systems_administrator
+## TITLE: Systems Administrator
+## MARKET_DESCRIPTION: System Administrators ensure enterprise systems are reliable and secure. Focus on script automation and host networking setups.
+## REQUIRED_SKILLS: Systems Administration, Linux, Windows Server, Active Directory, Virtualization, VMware, Hyper-V, Networking, DNS, DHCP, Shell Scripting, System Backups, IT Support
+## LEGACY_SKILLS: Answering Phones, Excel, Word, Filing, Printer Setup
+## ROADMAP_TASKS:
+- Task: Highlight system virtualization and server administration tags (VMware, Linux, Shell Scripting). | Weight: 12
+- Task: Remove desk support and basic printer configs (Printer Setup, Answering Phones) to lift system architect status. | Weight: 10
+# ROLE_END
+
+# ROLE_START: devsecops_engineer
+## TITLE: DevSecOps Security Engineer
+## MARKET_DESCRIPTION: DevSecOps integrates security into release pipelines. Highlight compliance-as-code and static analysis integrations.
+## REQUIRED_SKILLS: DevSecOps, CI/CD Security, SAST, DAST, Container Security, Vulnerability Scanning, SonarQube, Docker Security, AWS IAM, Compliance as Code, GitLab CI, Infrastructure Security
+## LEGACY_SKILLS: HTML, CSS, Manual Auditing, Excel, Access
+## ROADMAP_TASKS:
+- Task: Focus on automated pipeline compliance and scan integrations (CI/CD Security, SAST, SonarQube). | Weight: 15
+- Task: Remove manual auditing and frontend styling tags (HTML, CSS) to raise security engineering trust. | Weight: 10
+# ROLE_END
+
+# ROLE_START: financial_analyst
+## TITLE: Corporate Financial Analyst
+## MARKET_DESCRIPTION: Financial analysts optimize modeling structures and predict asset allocations. Highlight advanced corporate forecasts over basic ledger logs.
+## REQUIRED_SKILLS: Financial Analyst, Corporate Finance, Financial Modeling, Valuation, M&A, FP&A, SQL, Python, Forecasting, Budgeting, Investment Banking, Capital Allocation, VBA
+## LEGACY_SKILLS: Bookkeeping, Data Entry, Word, Filing, Answering Phones
+## ROADMAP_TASKS:
+- Task: Highlight advanced corporate forecasting and FP&A allocation metrics. | Weight: 14
+- Task: Prune clerical bookkeeping and ledger data entry markers (Bookkeeping, filing) to raise analytical posture. | Weight: 10
+# ROLE_END
+
+# ROLE_START: it_project_manager
+## TITLE: IT Project Manager (PMP)
+## MARKET_DESCRIPTION: Project managers oversee budget, timeline risk, and cross-functional teams. Focus on delivery metrics over basic meeting organization.
+## REQUIRED_SKILLS: IT Project Management, PMP, Agile, Waterfall, Jira, Scope Management, Risk Management, Budgeting, Resource Allocation, Stakeholder Communication, MS Project, Confluence, Scrum
+## LEGACY_SKILLS: Scheduling Meetings, Note Taking, Filing, Data Entry, Word
+## ROADMAP_TASKS:
+- Task: Highlight global IT project governance and budget risk mitigations in your headings. | Weight: 14
+- Task: Remove basic meeting notes and desk scheduling markers (Scheduling Meetings, Filing) to protect project management status. | Weight: 10
+# ROLE_END
+
+# ROLE_START: mlops_engineer
+## TITLE: MLOps & Platform Engineer
+## MARKET_DESCRIPTION: MLOps engineers codify machine learning lifecycles. Emphasize platform orchestration, vector scaling, and automation pipelines over static documentation.
+## REQUIRED_SKILLS: MLOps, Kubeflow, MLflow, DVC, CI/CD, AWS SageMaker, Docker, Kubernetes, Feature Store, Model Monitoring, Python, Airflow, BentoML, Triton
+## LEGACY_SKILLS: Excel, Word, HTML, CSS, Manual Testing
+## ROADMAP_TASKS:
+- Task: Feature automated ML pipelines and platform configurations (MLOps, Kubeflow, Kubernetes). | Weight: 12
+- Task: Prune standard manual tests and baseline spreadsheets (Excel, Manual Testing) to raise platform posture. | Weight: 10
+- Task: Draft a case study showing model latency profiling and vector indexing. | Weight: 15
+# ROLE_END
+
+# ROLE_START: data_architect
+## TITLE: Enterprise Data Architect
+## MARKET_DESCRIPTION: Data Architects structure structural business hierarchies. Recruiter alignments focus entirely on data warehousing systems over general reporting utilities.
+## REQUIRED_SKILLS: Data Architecture, Data Modeling, Data Governance, Snowflake, Databricks, ERD, Data Lake, Schema Design, MDM, SQL, NoSQL, Enterprise Data Strategy, Data Lineage
+## LEGACY_SKILLS: Excel, Filing, Note Taking, Word, Data Entry
+## ROADMAP_TASKS:
+- Task: Reframe about summary around enterprise data lineage, warehouses, and modeling frameworks. | Weight: 14
+- Task: Remove clerical data entry and filing details (Data Entry, Filing) to preserve corporate data strategist authority. | Weight: 10
+# ROLE_END
+
+# ROLE_START: penetration_tester
+## TITLE: Penetration Tester (Red Teamer)
+## MARKET_DESCRIPTION: Red Teamers perform simulated breaches. Highlight tactical network exploits, script writing, and vulnerabilities auditing over basic helpdesk tasks.
+## REQUIRED_SKILLS: Penetration Testing, Metasploit, Kali Linux, Burp Suite, Ethical Hacking, Red Teaming, Vulnerability Exploitation, OWASP Top 10, Reverse Engineering, Nmap, Scripting, OSCP
+## LEGACY_SKILLS: Customer Support, Data Entry, Word, Excel
+## ROADMAP_TASKS:
+- Task: Focus on tactical vulnerability exploits and Red Teaming strategies in your core tags. | Weight: 15
+- Task: Prune generic office helpdesk listings (Customer Support, Word) to highlight security depth. | Weight: 8
+- Task: Document a Metasploit network breach simulation in your featured case studies. | Weight: 12
+# ROLE_END
+
+# ROLE_START: security_architect
+## TITLE: Enterprise Security Architect
+## MARKET_DESCRIPTION: Security Architects govern enterprise threat portfolios. Show robust Zero-Trust strategies rather than firewall installations.
+## REQUIRED_SKILLS: Security Architecture, Zero Trust, IAM, SABSA, Cloud Security, Cryptography, Enterprise Risk, Threat Modeling, CISSP, Network Security, Security Policies, Compliance
+## LEGACY_SKILLS: Excel, cPanel, FTP, Manual Data Entry
+## ROADMAP_TASKS:
+- Task: Showcase Zero-Trust design patterns and multi-cloud security audits (Security Architecture). | Weight: 15
+- Task: Prune baseline web cPanel management markers (cPanel, FTP) to focus on enterprise threat models. | Weight: 10
+# ROLE_END
+
+# ROLE_START: site_reliability_engineer
+## TITLE: Site Reliability Engineer (SRE)
+## MARKET_DESCRIPTION: SREs treat operations as software problems. Focus on latency reduction, automated scale tools, and system SLO metrics.
+## REQUIRED_SKILLS: SRE, Kubernetes, Terraform, Prometheus, Grafana, Chaos Engineering, Incident Response, Linux, Bash, Go, Python, SLOs/SLIs, Post-Mortems, High Availability
+## LEGACY_SKILLS: Manual Testing, HTML, CSS, Dreamweaver, Word
+## ROADMAP_TASKS:
+- Task: Showcase infrastructure-as-code automation and high-availability clusters (Terraform, SRE, Kubernetes). | Weight: 12
+- Task: Remove generic web markup and manual tests (HTML, CSS) to raise SRE status. | Weight: 10
+- Task: Document a automated high-concurrency post-mortem incident report in your featured projects. | Weight: 15
+# ROLE_END
+
+# ROLE_START: frontend_architect
+## TITLE: Lead Front-End Architect
+## MARKET_DESCRIPTION: Front-End Architects structure complex clientside user sessions. Emphasize micro-framework configurations and state trees rather than static styling.
+## REQUIRED_SKILLS: React, Next.js, Vue.js, TypeScript, Micro-Frontends, Design Systems, Web Performance, Webpack, Vite, CSS Architecture, Tailwind, State Management, Monorepos
+## LEGACY_SKILLS: jQuery, Bootstrap, WordPress, PHP, Dreamweaver
+## ROADMAP_TASKS:
+- Task: Feature micro-frontend designs and high-performance client state trees in your credentials. | Weight: 12
+- Task: Prune legacy jQuery scripts and standard templates (WordPress, Bootstrap) to raise client strategist authority. | Weight: 10
+# ROLE_END
+
+# ROLE_START: embedded_software_engineer
+## TITLE: Embedded Systems Developer
+## MARKET_DESCRIPTION: Embedded developers program directly on silicon. Emphasize hardware registers, driver engineering, and RTOS configurations.
+## REQUIRED_SKILLS: C, C++, RTOS, Microcontrollers, ARM, SPI, I2C, UART, Bare-Metal, Device Drivers, Firmware, Logic Analyzers, Oscilloscope, IoT
+## LEGACY_SKILLS: HTML, CSS, WordPress, Excel, PowerPoint
+## ROADMAP_TASKS:
+- Task: Showcase silicon registers, device drivers, and ARM firmwares (RTOS, Bare-Metal). | Weight: 14
+- Task: Remove generic frontend web markup and standard office tags (WordPress, HTML) to highlight hardware depth. | Weight: 10
+# ROLE_END
+
+# ROLE_START: firmware_engineer
+## TITLE: Firmware Engineer
+## MARKET_DESCRIPTION: Firmware experts build core system logic. Show bare-metal execution depth over standard web styling systems.
+## REQUIRED_SKILLS: Firmware, C, Assembly, RTOS, Bootloaders, Hardware-Software Integration, ARM Cortex, FPGA, Verilog, Oscilloscope, Memory Management, Embedded Systems
+## LEGACY_SKILLS: HTML, CSS, Excel, Word, Filing
+## ROADMAP_TASKS:
+- Task: Highlight low-level bootloaders and system memory management (Assembly, ARM Cortex). | Weight: 15
+- Task: Prune baseline markup styling and filing tags (HTML, Filing) to prioritize bare-metal architecture. | Weight: 10
+# ROLE_END
+
+# ROLE_START: iot_solutions_architect
+## TITLE: IoT Solutions Architect
+## MARKET_DESCRIPTION: IoT Architects design unified sensor topologies. Focus on micro-protocol architectures and massive mesh networks.
+## REQUIRED_SKILLS: IoT, MQTT, CoAP, Edge Computing, AWS IoT, Azure IoT, Embedded Systems, Wireless Protocols, Zigbee, LoraWAN, Smart Devices, Sensor Networks, Gateway Architecture
+## LEGACY_SKILLS: WordPress, FTP, cPanel, Excel, Word
+## ROADMAP_TASKS:
+- Task: Highlight sensor mesh topologies and edge gateways (MQTT, Edge Computing). | Weight: 12
+- Task: Prune baseline content managers and spreadsheets (WordPress, Excel) to preserve IoT strategist authority. | Weight: 10
+# ROLE_END
+
+# ROLE_START: vr_ar_developer
+## TITLE: XR/VR/AR Developer
+## MARKET_DESCRIPTION: XR developers build spatial user interfaces. Highlight real-time rendering logic and vector geometry over common website templates.
+## REQUIRED_SKILLS: Unity, Unreal Engine, C#, C++, ARKit, ARCore, WebXR, 3D Math, Spatial Computing, Shader Programming, Oculus SDK, Blender, Interaction Design
+## LEGACY_SKILLS: WordPress, HTML, CSS, Canva, Data Entry
+## ROADMAP_TASKS:
+- Task: Pin 3D math shaders, spatial UI, and engine mechanics (Unity, Spatial Computing). | Weight: 12
+- Task: Prune baseline content editors and graphic layouts (Canva, WordPress) to focus on spatial interface logic. | Weight: 10
+# ROLE_END
+
+# ROLE_START: vpe
+## TITLE: Vice President of Engineering (VPE)
+## MARKET_DESCRIPTION: VPEs govern organizational structures and operational velocity. Highlight capital efficiency, team layouts, and technical roadmap delivery.
+## REQUIRED_SKILLS: Engineering Leadership, Technical Strategy, Organizational Design, Scaled Agile, System Architecture, Budget Allocation, Career Development, Executive Leadership, Recruiting Strategy, Delivery Management, Resource Planning
+## LEGACY_SKILLS: Writing Code, Manual Testing, Note Taking, Excel, Jira ticket edit
+## ROADMAP_TASKS:
+- Task: Focus about bio copy on corporate engineering organization design, resource budgets, and roadmap delivery speed. | Weight: 15
+- Task: Remove low-level code lines and baseline meeting schedules (Jira Tickets, Note Taking) to prioritize organization strategy. | Weight: 10
+# ROLE_END
+
+# ROLE_START: chief_data_officer
+## TITLE: Chief Data Officer (CDO)
+## MARKET_DESCRIPTION: Chief Data Officers treat data as a strategic corporate asset. Show data valuation and corporate governance rather than simple query writing.
+## REQUIRED_SKILLS: CDO, Data Strategy, Data Governance, Information Architecture, Data Monetization, Enterprise Risk, MDM, Compliance, Business Intelligence, Analytics Strategy, Executive Leadership, Corporate Strategy
+## LEGACY_SKILLS: SQL Querying, Data Entry, Excel Macros, Filing, Word
+## ROADMAP_TASKS:
+- Task: Highlight enterprise data strategy, corporate governance, and data monetization value. | Weight: 15
+- Task: Remove baseline SQL querying and office ledger logs (SQL Querying, Excel) to preserve executive officer status. | Weight: 10
+# ROLE_END
+
+# ROLE_START: chief_product_officer
+## TITLE: Chief Product Officer (CPO)
+## MARKET_DESCRIPTION: CPOs define product categories and market strategies. Emphasize portfolio margin structures and market transformations.
+## REQUIRED_SKILLS: CPO, Product Strategy, Product Vision, Portfolio Management, Market Disruption, GTM Strategy, Executive Leadership, Product Organization Design, Mergers & Acquisitions, Pricing Strategy, Growth Marketing
+## LEGACY_SKILLS: Jira tickets, Wireframing, Excel, Meeting Scheduling, Note Taking
+## ROADMAP_TASKS:
+- Task: Reframe profile headlines around product portfolio value strategy and category transformation. | Weight: 15
+- Task: Remove basic wireframing and office meetings schedulers (Jira Tickets, Note Taking) to command premium officer status. | Weight: 10
+# ROLE_END
+
+# ROLE_START: it_director
+## TITLE: Director of Information Technology
+## MARKET_DESCRIPTION: IT Directors oversee global enterprise networks. Highlight operational continuity and infrastructure strategy over desktop maintenance.
+## REQUIRED_SKILLS: IT Leadership, Enterprise Systems, Budgeting, Vendor Management, IT Governance, Infrastructure Strategy, Disaster Recovery, SaaS Operations, Information Security, Team Building, Asset Management
+## LEGACY_SKILLS: Installing RAM, Printer setup, Answering phones, Excel, Filing
+## ROADMAP_TASKS:
+- Task: Showcase global IT network continuity and SaaS operations budgets. | Weight: 14
+- Task: Prune desk RAM setups and helpdesk printer logs (Printer Setup, Answering Phones) to lift network director trust. | Weight: 10
+# ROLE_END
+
+# ROLE_START: delivery_manager
+## TITLE: Agile Delivery Manager
+## MARKET_DESCRIPTION: Delivery Managers accelerate process throughput. Recruiter validations value dependency mapping and pipeline optimizations.
+## REQUIRED_SKILLS: Delivery Management, Agile Delivery, Scrum, Kanban, Jira, Resource Allocation, Roadmap Execution, Dependency Mapping, Conflict Resolution, Process Optimization, Metrics & Reporting, Agile Coach
+## LEGACY_SKILLS: Excel Formulas, Note Taking, Filing, Meeting Scheduling, Data Entry
+## ROADMAP_TASKS:
+- Task: Pin workflow speed improvements and process optimization tags (Dependency Mapping, Agile Delivery). | Weight: 14
+- Task: Remove clerical scheduling and data entries (Data Entry, Meeting Scheduling) to raise delivery coach posture. | Weight: 8
+# ROLE_END
+
+# ROLE_START: program_manager
+## TITLE: Technical Program Manager (TPM)
+## MARKET_DESCRIPTION: TPMs run highly complex system integrations. Emphasize scope management and dependency diagrams over simple note taking.
+## REQUIRED_SKILLS: Program Management, Cross-Functional Leadership, Risk Management, Dependency Mapping, Technical Strategy, Jira, Agile, Scale Delivery, Stakeholder Communication, System Design, Scope Definition
+## LEGACY_SKILLS: Meeting Scheduling, Note Taking, Data Entry, Filing, Word
+## ROADMAP_TASKS:
+- Task: Reframe about summary around cross-functional program scoping and system integration architectures (Dependency Mapping). | Weight: 14
+- Task: Prune basic clerical filing and office note schedules (Note Taking, Filing) to protect program manager status. | Weight: 10
+# ROLE_END
+
+# ROLE_START: customer_experience_director
+## TITLE: Customer Experience (CX) Director
+## MARKET_DESCRIPTION: CX Directors govern retention and loyalty vectors. Emphasize design thinking and customer analytics over administrative support.
+## REQUIRED_SKILLS: Customer Experience, CX Strategy, Customer Journey Mapping, User Research, NPS, Customer Success, SaaS Operations, Voice of Customer, Design Thinking, Brand Strategy, Analytics
+## LEGACY_SKILLS: Answering Phones, Filing, Typing, Word, Data Entry
+## ROADMAP_TASKS:
+- Task: Feature customer loyalty metrics and design thinking strategies (CX Strategy, Customer Journey Mapping). | Weight: 14
+- Task: Remove baseline desk call and clerical support logs (Answering Phones, Filing) to raise strategic CX leader status. | Weight: 8
+# ROLE_END
+
+# ROLE_START: product_marketing_manager
+## TITLE: Product Marketing Manager (PMM)
+## MARKET_DESCRIPTION: PMMs establish product categories and launches. Highlight buyer personas, competitive analysis, and sales enablement frameworks.
+## REQUIRED_SKILLS: Product Marketing, GTM Strategy, Market Segmentation, Competitive Analysis, Product Positioning, Sales Enablement, Buyer Personas, Pricing Strategy, Copywriting, Product Launches, Value Metrics
+## LEGACY_SKILLS: Social Media Posting, Canva Graphics, Typing, Filing, Data Entry
+## ROADMAP_TASKS:
+- Task: Feature product launch and market positioning strategies (GTM Strategy, Buyer Personas). | Weight: 12
+- Task: Prune general social posts and flat layout graphics (Social Media Posting, Canva) to lift PMM analyst trust. | Weight: 8
+# ROLE_END
+
+# ROLE_START: brand_strategist
+## TITLE: Brand Strategist
+## MARKET_DESCRIPTION: Brand Strategists define enterprise narratives. Emphasize competitive positioning, consumer insights, and campaign strategies.
+## REQUIRED_SKILLS: Brand Strategy, Brand Positioning, Market Research, Consumer Insights, Brand Identity, Narrative Architecture, Marketing Strategy, Competitive Strategy, Campaign Strategy, SaaS Branding
+## LEGACY_SKILLS: Social Media Posting, Canva, Filing, Answering Phones, Word
+## ROADMAP_TASKS:
+- Task: Highlight competitive market positioning and consumer insight strategies (Brand Strategy). | Weight: 12
+- Task: Remove general community posting and basic template editors (Canva, Word) to preserve brand strategist authority. | Weight: 8
+# ROLE_END
+
+# ROLE_START: creative_director
+## TITLE: Creative Director
+## MARKET_DESCRIPTION: Creative Directors govern brand aesthetics. Emphasize art direction, creative strategies, and interactive stories.
+## REQUIRED_SKILLS: Creative Direction, Brand Strategy, Design Leadership, Copywriting, Art Direction, Concept Development, Campaign Strategy, Design Systems, Visual Storytelling, UX/UI Design
+## LEGACY_SKILLS: Photoshop cropping, Typing, Data Entry, Excel, Word
+## ROADMAP_TASKS:
+- Task: Focus on creative art direction and design leadership standards. | Weight: 12
+- Task: Remove basic cropping and spreadsheet data entry (Photoshop cropping, Excel) to protect design strategist authority. | Weight: 8
+# ROLE_END
+
+# ROLE_START: content_strategist
+## TITLE: Content Strategist & Content Architect
+## MARKET_DESCRIPTION: Content Strategists manage digital editorial value. Focus on user onboarding content strategy and organic SEO search pipelines.
+## REQUIRED_SKILLS: Content Strategy, Content Architecture, Copywriting, SEO, Content Marketing, Narrative Design, Editorial Calendar, B2B Content, Conversion Rate Optimization, UX Writing
+## LEGACY_SKILLS: Typing, Filing, Social Media Posting, Excel, Word
+## ROADMAP_TASKS:
+- Task: Pin digital editorial strategy and search pipeline keywords (Content Strategy, UX Writing). | Weight: 12
+- Task: Remove clerical data entries and general community posts (Filing, Typing) to preserve content architect status. | Weight: 8
+# ROLE_END
+
+# ROLE_START: financial_risk_manager
+## TITLE: Financial Risk Manager (FRM)
+## MARKET_DESCRIPTION: FRM professionals design risk portfolios. Highlight asset valuation modeling and stress tests over bookkeeping.
+## REQUIRED_SKILLS: Financial Risk, FRM, Risk Modeling, VaR, Credit Risk, Market Risk, Compliance, Stress Testing, Financial Modeling, Quantitative Analysis, Capital Allocation
+## LEGACY_SKILLS: Bookkeeping, Excel Formulas, Data Entry, Filing, Answering Phones
+## ROADMAP_TASKS:
+- Task: Highlight corporate risk modeling and stress test evaluations. | Weight: 14
+- Task: Remove clerical ledger entries and bookkeeping logs (Bookkeeping, filing) to raise risk strategist status. | Weight: 10
+# ROLE_END
+
+# ROLE_START: investment_analyst
+## TITLE: Venture Capital / PE Analyst
+## MARKET_DESCRIPTION: Investment Analysts screen capitalization models. Highlight deal diligence and corporate financial architecture.
+## REQUIRED_SKILLS: Venture Capital, Private Equity, Valuation, Due Diligence, Financial Modeling, Market Research, Deal Sourcing, M&A, Equity Research, Cap Table, Investment Thesis
+## LEGACY_SKILLS: Excel Data Entry, Word, Filing, Answering Phones, Note Taking
+## ROADMAP_TASKS:
+- Task: Feature corporate deal diligence and cap table structuring metrics. | Weight: 14
+- Task: Prune clerical logging and office note schedules (Filing, Note Taking) to protect analytical VC trust. | Weight: 10
+# ROLE_END
+
+# ROLE_START: legal_tech_consultant
+## TITLE: Legal Tech Consultant
+## MARKET_DESCRIPTION: Legal Tech Specialists automate legal processes. Focus on process automation, contract tools, and system audits.
+## REQUIRED_SKILLS: Legal Tech, Legal Operations, Contract Lifecycle Management, E-Discovery, Process Automation, Legal Systems, Information Governance, Compliance, Enterprise Software
+## LEGACY_SKILLS: Word, Filing, Note Taking, Excel, Answering Phones
+## ROADMAP_TASKS:
+- Task: Highlight process automation and contract lifecycle integrations (Legal Operations). | Weight: 12
+- Task: Remove standard word processors and filing details (Filing, Note Taking) to raise legal tech consultant authority. | Weight: 8
+# ROLE_END
+
+# ROLE_START: business_development_director
+## TITLE: Director of Business Development
+## MARKET_DESCRIPTION: Business Development Leads design strategic partnerships. Highlight deal structuring and contract negotiations over cold calling.
+## REQUIRED_SKILLS: Business Development, Strategic Partnerships, Enterprise Sales, GTM Strategy, Deal Structuring, Contract Negotiation, Executive Relationship Management, Pipeline Growth, B2B SaaS
+## LEGACY_SKILLS: Cold Calling, Excel, Data Entry, Answering Phones, Filing
+## ROADMAP_TASKS:
+- Task: Feature strategic corporate partnerships and high-ticket deal structure metrics. | Weight: 15
+- Task: Remove telemarketing cold calls and basic office schedulers (Cold Calling, Filing) to protect BD director status. | Weight: 10
+# ROLE_END
+
+# ROLE_START: operations_director
+## TITLE: Director of Operations
+## MARKET_DESCRIPTION: Operations Directors scale operational matrices. Focus on cost optimization and enterprise logistics strategies.
+## REQUIRED_SKILLS: Operations Management, Process Optimization, KPIs & Metrics, Resource Planning, Budgeting, Scaling Operations, Supply Chain, Cross-Functional Leadership, Enterprise Strategy
+## LEGACY_SKILLS: Filing, Typing, Answering Phones, Jira Tickets, Word
+## ROADMAP_TASKS:
+- Task: Reframe about bio around operations scaling, cost optimizations, and resource budgets. | Weight: 14
+- Task: Remove basic desk logs and low-level task schedules (Filing, Word) to raise strategic operations director authority. | Weight: 10
+# ROLE_END
+
+# ROLE_START: scrum_coach
+## TITLE: Enterprise Agile Coach
+## MARKET_DESCRIPTION: Agile Coaches govern organizational change. Highlight transformation blueprints and leadership coaching over task management.
+## REQUIRED_SKILLS: Agile Coaching, Scaled Agile, SAFe, Organizational Transformation, Scrum, Kanban, Leadership Coaching, Facilitation, Change Management, Team Maturity
+## LEGACY_SKILLS: Meeting Scheduling, Note Taking, Excel, Jira tickets, Filing
+## ROADMAP_TASKS:
+- Task: Reframe summary around corporate transformation blueprints and leadership coaching standards. | Weight: 14
+- Task: Remove basic sprint notes and administrative schedules (Meeting Scheduling, Note Taking) to protect Agile coach status. | Weight: 10
+# ROLE_END
+
+# ROLE_START: bi_architect
+## TITLE: Business Intelligence Architect
+## MARKET_DESCRIPTION: BI Architects design decision engines. Highlight enterprise data warehouses and metadata modeling.
+## REQUIRED_SKILLS: BI Architecture, Data Warehousing, Tableau, Power BI, SQL, ETL, Data Modeling, Data Visualization, SSAS, SSIS, Metadata Management, Enterprise Reporting
+## LEGACY_SKILLS: Data Entry, Filing, Note Taking, Excel Sheets, Word
+## ROADMAP_TASKS:
+- Task: Showcase BI decision infrastructure and metadata modeling metrics. | Weight: 12
+- Task: Prune clerical data entry and baseline office logs (Data Entry, Filing) to prioritize data architect trust. | Weight: 10
+# ROLE_END
+
+# ROLE_START: cloud_security_engineer
+## TITLE: Cloud Security Engineer
+## MARKET_DESCRIPTION: Cloud Security Engineers safeguard microservices. Highlight infrastructure-as-code validation and policy audits.
+## REQUIRED_SKILLS: Cloud Security, AWS IAM, Terraform Security, Kubernetes Security, DevSecOps, Vulnerability Management, CloudTrail, GuardDuty, Security Auditing, Compliance
+## LEGACY_SKILLS: Excel, Manual Auditing, Word, Filing, Answering Phones
+## ROADMAP_TASKS:
+- Task: Feature infrastructure-as-code scan checks and policy compliance integrations (DevSecOps, AWS IAM). | Weight: 15
+- Task: Prune manual auditing and desk filing tags (Filing, Word) to prioritize cloud security engineering status. | Weight: 10
+# ROLE_END
+
+# ROLE_START: devops_manager
+## TITLE: DevOps Manager
+## MARKET_DESCRIPTION: DevOps Managers oversee platform delivery. Highlight infrastructure strategies, cloud budgets, and SRE governance.
+## REQUIRED_SKILLS: DevOps Leadership, Site Reliability, Cloud Strategy, CI/CD Orchestration, Infrastructure Strategy, Team Management, Budgeting, Agile Delivery, SRE Governance
+## LEGACY_SKILLS: Manual Testing, HTML, CSS, Note Taking, Excel
+## ROADMAP_TASKS:
+- Task: Highlight DevOps platform leadership, cloud infrastructure budgets, and SRE governance in your headings. | Weight: 15
+- Task: Remove low-level frontend markup and manual test plans (HTML, CSS) to command premium manager status. | Weight: 10
+# ROLE_END
+
+# ROLE_START: educator_teacher
+## TITLE: High School Educator / Teacher
+## MARKET_DESCRIPTION: Educational leaders construct modern curricula, manage classrooms, and employ pedagogy frameworks. Move past simple tutoring to systemic learning designs.
+## REQUIRED_SKILLS: Curriculum Development, Pedagogical Frameworks, Classroom Management, Lesson Planning, Student Assessments, Educational Technology, EdTech, Differentiated Instruction, Special Education, Parent Communication, Academic Advising, STEM Education, Literacy Development, Interactive Learning
+## LEGACY_SKILLS: Babysitting, Word Processing, Typing, Excel, Filing
+## ROADMAP_TASKS:
+- Task: Highlight curriculum design methodology and pedagogical frameworks (STEM, EdTech) in your credentials. | Weight: 12
+- Task: Remove general childcare or babysitting references (Babysitting, Filing) to maintain professional status. | Weight: 10
+# ROLE_END
+
+# ROLE_START: attorney_lawyer
+## TITLE: Corporate Attorney / Lawyer
+## MARKET_DESCRIPTION: Legal authorities govern corporate compliance, contract blueprints, risk management, and litigation strategies. Focus heavily on legal engineering over basic document filing.
+## REQUIRED_SKILLS: Corporate Law, Legal Writing, Contract Negotiation, Dispute Resolution, Legal Compliance, Risk Assessment, Due Diligence, Intellectual Property, IP Strategy, Mergers & Acquisitions, Legal Advocacy, Case Analysis, Legal Auditing
+## LEGACY_SKILLS: Typing, Note Taking, Filing, Answering Phones, Scheduling
+## ROADMAP_TASKS:
+- Task: Showcase legal advisory depth, contract negotiations, and compliance frameworks (Dispute Resolution, IP Strategy). | Weight: 15
+- Task: Remove administrative scheduler or secretarial notations (Typing, Note Taking) to protect lawyer authority. | Weight: 10
+# ROLE_END
+
+# ROLE_START: technical_writer_author
+## TITLE: Professional Author / Writer
+## MARKET_DESCRIPTION: Authors structure complex narratives, publish books, and manage creative intellectual properties. Highlight editorial governance over basic blog posting.
+## REQUIRED_SKILLS: Creative Writing, Narrative Architecture, Book Publishing, Self-Publishing, Copywriting, Editing, Content Strategy, Storytelling, Manuscript Preparation, Character Development, Creative Direction, Intellectual Property, Author Branding, Ghostwriting, Book Marketing
+## LEGACY_SKILLS: Social Media Posting, Canva Graphics, Data Entry, Word
+## ROADMAP_TASKS:
+- Task: Showcase narrative architecture and published intellectual properties (Book Publishing, Content Strategy) in featured links. | Weight: 12
+- Task: Remove low-impact community posting and templated graphic listings (Canva, Word) to raise creative writer status. | Weight: 8
+# ROLE_END
+
+# ROLE_START: academic_professor
+## TITLE: Academic Professor / Researcher
+## MARKET_DESCRIPTION: University professors lead scholarly research, publish peer-reviewed papers, and govern academic divisions. Highlight peer-reviewed contributions over standard tutoring.
+## REQUIRED_SKILLS: Higher Education, Academic Research, Scholarly Publishing, Peer Review, Grant Writing, Curriculum Design, Higher Ed Pedagogy, Lectures, Scientific Methodology, Academic Governance, Thesis Advising, Data Analysis, Symposia Presentation
+## LEGACY_SKILLS: Grading Papers, Word Processing, Typing, Excel, Note Taking
+## ROADMAP_TASKS:
+- Task: Showcase peer-reviewed papers, scientific methodologies, and grant awards in your credentials. | Weight: 15
+- Task: Prune baseline grading or administrative assistant listings (Note Taking, Excel) to project professorial status. | Weight: 10
+# ROLE_END
+
+# ROLE_START: mathematician
+## TITLE: Research Mathematician
+## MARKET_DESCRIPTION: Mathematicians structure quantitative algorithms, statistical proofs, and cryptographic architectures. Focus on numerical engineering over spreadsheets.
+## REQUIRED_SKILLS: Mathematical Modeling, Abstract Algebra, Calculus, Linear Algebra, Statistical Analysis, Algorithmic Design, Cryptography, Quantitative Research, Numerical Analysis, Operations Research, R, MATLAB, Mathematical Proofs, Optimization Theory
+## LEGACY_SKILLS: Excel, Bookkeeping, Data Entry, Word, Filing
+## ROADMAP_TASKS:
+- Task: Highlight algorithmic design, optimization theory, and cryptographic architectures (Mathematical Proofs). | Weight: 15
+- Task: Remove basic spreadsheets and bookkeeping ledger tags (Excel, Data Entry) to raise predictive modeling trust. | Weight: 10
+# ROLE_END
+
+# ROLE_START: physicist
+## TITLE: Research Physicist
+## MARKET_DESCRIPTION: Physicists engineer computational physics models, thermodynamics setups, and experimental systems. Focus on advanced simulations over desktop support.
+## REQUIRED_SKILLS: Computational Physics, Thermodynamics, Quantum Mechanics, Electromagnetism, Experimental Physics, Data Analysis, Mathematical Modeling, MATLAB, Python, LabVIEW, Scientific Computing, Statistical Modeling, Mechanics, Physics Simulations
+## LEGACY_SKILLS: Excel, Customer Support, Word, Filing, Data Entry
+## ROADMAP_TASKS:
+- Task: Pin scientific computing and physics simulations tags (Quantum Mechanics, MATLAB, Python). | Weight: 15
+- Task: Prune desk support and helpdesk data logs (Customer Support, Excel) to highlight research depth. | Weight: 10
+# ROLE_END
+
+# ROLE_START: historian
+## TITLE: Academic Historian / Archivist
+## MARKET_DESCRIPTION: Historians model historical trends, analyze archival primary sources, and publish cultural research papers. Highlight historical analysis over general blogging.
+## REQUIRED_SKILLS: Historical Research, Archival Management, Primary Source Analysis, Scholarly Writing, Academic Research, Cultural Heritage, Curatorial Practice, Historiography, Document Preservation, Public History, Qualitative Analysis, Oral History
+## LEGACY_SKILLS: Social Media Posting, Word, Typing, Answering Phones
+## ROADMAP_TASKS:
+- Task: Feature archival management and primary source qualitative research (Historiography). | Weight: 12
+- Task: Remove general blogging and telephone support markers (Typing, Answering Phones) to highlight archivist authority. | Weight: 8
+# ROLE_END
+
+# ROLE_START: medical_doctor
+## TITLE: Medical Doctor (MD / GP)
+## MARKET_DESCRIPTION: Doctors formulate clinical diagnostics, medical guidelines, and patient treatment models. Highlight specialized clinical governance over basic medical scribe.
+## REQUIRED_SKILLS: Clinical Diagnostics, Patient Care, Medical Ethics, Internal Medicine, Family Medicine, Electronic Health Records, EHR, Pharmacology, Preventative Medicine, Medical Education, Clinical Governance, Diagnostic Medicine, Cardiology
+## LEGACY_SKILLS: Medical Scribing, Excel, Typing, Data Entry, Answering Phones
+## ROADMAP_TASKS:
+- Task: Focus your headlines on clinical diagnostics, EHR systems, and clinical governance (MD). | Weight: 15
+- Task: Remove low-level clerical scribing and call scheduling listings (Medical Scribing, Answering Phones) to raise MD status. | Weight: 10
+# ROLE_END
+
+# ROLE_START: medical_surgeon
+## TITLE: Medical Surgeon (Specialist)
+## MARKET_DESCRIPTION: Surgeons orchestrate highly complex operating theater setups and surgical plans. Focus on advanced procedures over general practice.
+## REQUIRED_SKILLS: Surgical Procedures, Operating Theater, Patient Safety, Medical Robotics, Minimally Invasive Surgery, Surgical Oncology, Trauma Surgery, Anatomy, Orthopedics, Post-Operative Care, Clinical Research, Pre-Operative Assessment
+## LEGACY_SKILLS: Answering Phones, Excel, Scribing, Customer Service, Word
+## ROADMAP_TASKS:
+- Task: Showcase operating theater procedures and medical robotics precision (Surgical Oncology, Patient Safety). | Weight: 15
+- Task: Prune generic office customer service and data entry details (Answering Phones, Excel) to maintain specialist trust. | Weight: 10
+# ROLE_END
+
+# ROLE_START: executive_coach
+## TITLE: Executive Leadership Coach
+## MARKET_DESCRIPTION: Coaches facilitate organizational leadership changes, executive communication blueprints, and management frameworks. Move past standard mentoring.
+## REQUIRED_SKILLS: Executive Coaching, Leadership Development, Emotional Intelligence, Strategic Communication, Conflict Resolution, Change Management, Team Dynamics, Talent Development, Corporate Strategy, Feedback Delivery, Facilitation
+## LEGACY_SKILLS: Excel, Scheduling Meetings, Note Taking, Word, Filing
+## ROADMAP_TASKS:
+- Task: Highlight executive communication strategies and corporate leadership changes (Executive Coaching). | Weight: 14
+- Task: Remove administrative note taking and desk scheduling markers (Scheduling Meetings, Filing) to protect coach status. | Weight: 8
+# ROLE_END
+
+# ROLE_START: journalist
+## TITLE: Investigative Journalist / Reporter
+## MARKET_DESCRIPTION: Journalists conduct primary source interviews, investigative writing, and editorial curation. Focus on rigorous reporting over simple community blogging.
+## REQUIRED_SKILLS: Investigative Journalism, News Reporting, Feature Writing, Copywriting, Editing, Media Relations, Broadcast Journalism, Media Law, Primary Source Interviews, Fact-Checking, Digital Media, Content Curation, Narrative Journalism
+## LEGACY_SKILLS: Blogging, Canva Graphics, Word, Data Entry, Excel
+## ROADMAP_TASKS:
+- Task: Pin investigative writing and digital media curation tags (Investigative Journalism, Fact-Checking). | Weight: 12
+- Task: Remove basic blogging and office ledger logs (Canva, Word) to preserve investigative reporter status. | Weight: 8
+# ROLE_END
+
+# ROLE_START: psychologist
+## TITLE: Clinical Psychologist / Therapist
+## MARKET_DESCRIPTION: Therapists manage clinical assessments, cognitive behavioral models, and psychological counseling. Highlight therapeutic clinical governance over mentoring.
+## REQUIRED_SKILLS: Clinical Psychology, Psychological Assessment, Psychotherapy, Cognitive Behavioral Therapy, CBT, Mental Health, Counseling, Crisis Intervention, Diagnostic Practice, Treatment Planning, Ethics
+## LEGACY_SKILLS: Note Taking, Scheduling, Word Processing, Excel, Data Entry
+## ROADMAP_TASKS:
+- Task: Showcase clinical assessments and cognitive behavioral therapy depth (CBT, Crisis Intervention). | Weight: 14
+- Task: Prune clerical note-taking and scheduler markers (Note Taking, Excel) to preserve therapist authority. | Weight: 8
+# ROLE_END
+
+# ROLE_START: financial_advisor
+## TITLE: Certified Financial Planner / Advisor
+## MARKET_DESCRIPTION: Financial advisors structure asset allocations, wealth management portfolios, and retirement strategies. Focus on capital planning over basic bookkeeping.
+## REQUIRED_SKILLS: Financial Planning, Wealth Management, Asset Allocation, Retirement Strategy, Investment Advisory, Tax Strategy, Risk Management, Estate Planning, Client Relationship Management, Portfolio Optimization, CFP
+## LEGACY_SKILLS: Bookkeeping, Data Entry, Word, Filing, Answering Phones
+## ROADMAP_TASKS:
+- Task: Highlight wealth management and portfolio optimization capabilities (Asset Allocation, CFP). | Weight: 14
+- Task: Remove baseline bookkeeping and filing logs (Bookkeeping, filing) to raise advisor status. | Weight: 8
+# ROLE_END
+
+# ROLE_START: architect_structural
+## TITLE: Structural Architect (Buildings)
+## MARKET_DESCRIPTION: Structural architects govern blueprint designs, spatial layouts, and construction planning. Highlight building design systems over flat drafts.
+## REQUIRED_SKILLS: Architecture Design, Revit, AutoCAD, Building Information Modeling, BIM, Building Codes, Construction Documentation, Spatial Planning, Visual Design, Blueprint Design, Structural Integration, Design Strategy
+## LEGACY_SKILLS: Graphic Design, Excel, Word, Manual Drafting, cPanel
+## ROADMAP_TASKS:
+- Task: Showcase core spatial planning and BIM blueprints (Architecture Design, Revit). | Weight: 12
+- Task: Prune generic graphic design or manual drafting tags (Manual Drafting, Photoshop) to highlight structural architecture. | Weight: 10
+# ROLE_END
+
+# ROLE_START: public_relations
+## TITLE: Public Relations (PR) Director
+## MARKET_DESCRIPTION: PR Directors govern brand reputation, media crisis responses, and corporate press strategies. Focus on crisis strategy over simple community posting.
+## REQUIRED_SKILLS: Public Relations, Media Relations, Strategic Communication, Crisis Management, Press Releases, Brand Management, Event Strategy, Corporate Communication, Stakeholder Engagement, Media Campaigns, Reputation Management
+## LEGACY_SKILLS: Social Media Posting, Canva Graphics, Word, Filing, Data Entry
+## ROADMAP_TASKS:
+- Task: Feature brand reputation strategy and crisis management capabilities (Public Relations, Reputation Management). | Weight: 14
+- Task: Prune generic visual layouts and simple post markers (Canva, Word) to raise PR director status. | Weight: 8
+# ROLE_END
+
+# ROLE_START: human_resources_director
+## TITLE: Director of Human Resources
+## MARKET_DESCRIPTION: HR Directors govern organizational culture, workforce allocations, and talent policies. Focus on talent optimization strategy over secretarial tasks.
+## REQUIRED_SKILLS: HR Strategy, Employee Relations, Organizational Development, Talent Management, Workforce Planning, HR Compliance, Compensation & Benefits, Performance Management, Succession Planning, Executive Recruiting, Change Management
+## LEGACY_SKILLS: Scheduling Meetings, Note Taking, Excel, Jira, Filing
+## ROADMAP_TASKS:
+- Task: Showcase global workforce planning and talent compensation strategies (HR Strategy, Succession Planning). | Weight: 15
+- Task: Remove meeting note schedulers and filing logs (Note Taking, Filing) to protect HR Director authority. | Weight: 10
+# ROLE_END
+
+# ROLE_START: economist
+## TITLE: Research Economist / Policy Analyst
+## MARKET_DESCRIPTION: Economists evaluate econometric pipelines, financial forecasts, and public policy impact. Focus on macro modeling over simple bookkeeping.
+## REQUIRED_SKILLS: Economics, Econometrics, Quantitative Research, Policy Analysis, Statistical Analysis, Financial Modeling, Data Analysis, Forecasting, R, Python, SQL, Academic Writing, Microeconomics, Macroeconomics
+## LEGACY_SKILLS: Bookkeeping, Data Entry, Word, Filing, Excel
+## ROADMAP_TASKS:
+- Task: Pin quantitative econometric forecasting and macro modeling skills (Econometrics, R, Python). | Weight: 14
+- Task: Remove baseline data entries and bookkeeping ledger tags (Bookkeeping, Excel) to protect economist analyst trust. | Weight: 10
+# ROLE_END
+
+# ROLE_START: graphic_artist
+## TITLE: Fine Artist / Illustrator
+## MARKET_DESCRIPTION: Visual artists govern visual storytelling, creative illustration, and fine art commissions. Focus on creative design systems over simple cropping.
+## REQUIRED_SKILLS: Visual Art, Illustration, Fine Art, Creative Direction, Digital Illustration, Visual Storytelling, Concept Art, Adobe Photoshop, Painting, Concept Development, Graphic Illustration, Visual Branding
+## LEGACY_SKILLS: cPanel, HTML, CSS, Excel, Word, Photoshop Crop
+## ROADMAP_TASKS:
+- Task: Pin creative visual storytelling and conceptual illustrations (Visual Storytelling, Concept Art). | Weight: 12
+- Task: Prune basic web configurations and simple file cropping (Photoshop Crop, HTML) to prioritize visual artistry. | Weight: 8
+# ROLE_END
+
+# ROLE_START: translator_linguist
+## TITLE: Professional Translator / Linguist
+## MARKET_DESCRIPTION: Linguists govern systematic translation, cognitive linguistics, and localized narrative adaptations. Focus on linguistics engineering over simple word typing.
+## REQUIRED_SKILLS: Translation, Linguistics, Localization, Editing, Proofreading, Language Instruction, Subtitling, Interpretation, Intercultural Communication, Language Services, Creative Copywriting, Transcription
+## LEGACY_SKILLS: Typing, Note Taking, Word Processing, Answering Phones, Filing
+## ROADMAP_TASKS:
+- Task: Highlight localization strategies and cognitive linguistics competencies (Translation, Localization). | Weight: 12
+- Task: Remove generic clerical typing and telephone help logs (Typing, Answering Phones) to raise linguist strategist status. | Weight: 8
+# ROLE_END
+
+# ROLE_START: real_estate_broker
+## TITLE: Commercial Real Estate Broker
+## MARKET_DESCRIPTION: Commercial brokers structure capital asset transactions, lease negotiations, and real estate investments. Focus on property asset valuation over basic cold calls.
+## REQUIRED_SKILLS: Commercial Real Estate, Property Valuation, Lease Negotiation, Real Estate Investment, Deal Structuring, Market Analysis, Contract Negotiation, B2B Sales, Portfolio Optimization, Due Diligence, Financial Modeling
+## LEGACY_SKILLS: Cold Calling, Excel, Data Entry, Filing, Word
+## ROADMAP_TASKS:
+- Task: Feature commercial lease negotiations and investment asset portfolios (Deal Structuring, Property Valuation). | Weight: 14
+- Task: Remove standard telemarketing cold calls and filing logs (Cold Calling, Filing) to protect BD broker authority. | Weight: 10
+# ROLE_END
+

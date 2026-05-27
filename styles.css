@@ -1,0 +1,267 @@
+/* styles.css */
+
+/* Core Styling & Custom Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --brand-cyan: #00f2fe;
+    --brand-blue: #4facfe;
+    --brand-purple: #8b5cf6;
+    --brand-dark: #090d16;
+    --brand-dark-card: rgba(13, 20, 38, 0.45);
+    --border-color: rgba(0, 242, 254, 0.15);
+    --border-hover: rgba(0, 242, 254, 0.35);
+    --font-outfit: 'Outfit', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body { 
+    font-family: var(--font-sans); 
+    background-color: var(--brand-dark); 
+    color: #f1f5f9; 
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.3);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(79, 172, 254, 0.3);
+    border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--brand-cyan);
+    box-shadow: 0 0 10px var(--brand-cyan);
+}
+
+/* Glassmorphism Panel system */
+.glass-panel { 
+    background: var(--brand-dark-card); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(0, 242, 254, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Scrollable Layout Section */
+.section-panel {
+    scroll-margin-top: 110px; /* Provides top spacing during smooth-scrolling */
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.section-panel:target {
+    border-color: var(--brand-cyan);
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.15);
+}
+
+/* Interactive Dashboard Sidebar Tabs */
+.tab-btn {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+.tab-btn.active {
+    background: rgba(0, 242, 254, 0.08);
+    border-color: rgba(0, 242, 254, 0.3);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
+}
+.tab-btn.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 25%;
+    height: 50%;
+    width: 4px;
+    background: linear-gradient(180deg, var(--brand-cyan), var(--brand-blue));
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 0 10px var(--brand-cyan);
+}
+
+/* Form Fields Styling */
+input, textarea, select {
+    background-color: rgba(7, 11, 22, 0.7) !important;
+    border: 1px solid rgba(79, 172, 254, 0.2) !important;
+    color: #e2e8f0 !important;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+input:focus, textarea:focus, select:focus {
+    border-color: var(--brand-cyan) !important;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.25) !important;
+    outline: none;
+    background-color: rgba(7, 11, 22, 0.85) !important;
+}
+
+/* Dynamic Gradient Accent Texts */
+.gradient-text {
+    background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.gradient-text-purple {
+    background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Dynamic Glow Buttons */
+.btn-glow {
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    box-shadow: 0 4px 20px rgba(0, 242, 254, 0.25);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-glow:hover {
+    box-shadow: 0 6px 25px rgba(0, 242, 254, 0.45);
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+}
+.btn-glow:active {
+    transform: translateY(1px);
+    filter: brightness(0.95);
+}
+
+/* Simulated Score Progress Ring / Bar */
+.progress-ring-circle {
+    transition: stroke-dashoffset 0.6s ease-in-out;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.simulated-badge {
+    background: rgba(0, 242, 254, 0.1);
+    border: 1px solid rgba(0, 242, 254, 0.25);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
+    animation: pulseGlow 2s infinite alternate;
+}
+
+/* Checklist Animations */
+.checkbox-custom {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(79, 172, 254, 0.4);
+    border-radius: 6px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.checkbox-custom.checked {
+    background: linear-gradient(135deg, var(--brand-cyan), var(--brand-blue));
+    border-color: transparent;
+    box-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+}
+.checkbox-custom.checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--brand-dark);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* Animations */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 242, 254, 0.1);
+        border-color: rgba(0, 242, 254, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(0, 242, 254, 0.35);
+        border-color: rgba(0, 242, 254, 0.5);
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulseGlow 3s infinite alternate;
+}
+
+/* Score Dial Styling */
+.dial-container {
+    filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.2));
+}
+
+/* Comparison View Diff Markup */
+.diff-card {
+    border-left: 4px solid #ef4444;
+}
+.diff-card-success {
+    border-left: 4px solid #10b981;
+}
+
+.word-highlight-red {
+    background-color: rgba(239, 68, 68, 0.2);
+    border-bottom: 2px dashed #ef4444;
+    padding: 0 2px;
+}
+.word-highlight-green {
+    background-color: rgba(16, 185, 129, 0.2);
+    border-bottom: 2px dashed #10b981;
+    padding: 0 2px;
+}
+
+/* Dynamic Tooltip and Tags */
+.pill-tag {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.2s ease;
+}
+.pill-tag:hover {
+    background: rgba(0, 242, 254, 0.1);
+    border-color: rgba(0, 242, 254, 0.3);
+    color: #ffffff;
+}
+
+/* Drop-zone overlay */
+.dropzone {
+    border: 2px dashed rgba(79, 172, 254, 0.3);
+    transition: all 0.3s ease;
+}
+.dropzone.dragover {
+    border-color: var(--brand-cyan);
+    background: rgba(0, 242, 254, 0.05);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.15);
+}
+
+/* Floating Navigation Bar for Scrolling Shell */
+.floating-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(9, 13, 22, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(0, 242, 254, 0.12);
+}
+
+/* Accessibility Baseline: Enforce that no text drops below 10px font size */
+* {
+    min-height: 0;
+}
+@media (min-width: 0px) {
+    .text-xxs, .text-[9px], .text-[8px], .text-[7px], .text-[6px], .text-[5px], .text-[4px] {
+        font-size: 10px !important;
+    }
+    
+    /* Safely prevent inline custom styles from dropping below 10px */
+    small, sub, sup, caption, .text-micro {
+        font-size: 10px !important;
+    }
+}
